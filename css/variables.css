@@ -1,0 +1,35 @@
+:root {
+  /* Brand */
+  --blue:        #0073FF;
+  --blue-light:  #B0D4FF;
+  --blue-dark:   #002859;
+  --blue-mid:    #0055CC;
+
+  /* Background */
+  --bg:          #000d1a;
+  --bg-2:        #001228;
+  --bg-card:     rgba(255, 255, 255, 0.05);
+
+  /* Text */
+  --text:        #FFFFFF;
+  --text-muted:  rgba(255, 255, 255, 0.55);
+  --text-subtle: rgba(255, 255, 255, 0.35);
+
+  /* Glass */
+  --glass-bg:     rgba(255, 255, 255, 0.07);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur:   blur(20px) saturate(180%);
+
+  /* Spacing */
+  --max-width: 1140px;
+  --section-py: 100px;
+
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+
+  /* Transitions */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}

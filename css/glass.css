@@ -1,0 +1,71 @@
+/* ── Liquid Glass utilities ─────────────────────────── */
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+}
+
+.glass-hover {
+  transition: transform 0.3s var(--ease-spring),
+              box-shadow 0.3s var(--ease-smooth);
+}
+
+.glass-hover:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 115, 255, 0.25),
+              0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Navbar glass */
+.glass-nav {
+  background: rgba(0, 13, 26, 0.6);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Button glass */
+.btn-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+  padding: 10px 22px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: background 0.2s, transform 0.2s var(--ease-spring);
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: scale(1.03);
+}
+
+/* Button primary */
+.btn-primary {
+  background: var(--blue);
+  border-radius: 100px;
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  transition: background 0.2s, transform 0.2s var(--ease-spring), box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--blue-mid);
+  transform: scale(1.03);
+  box-shadow: 0 8px 32px rgba(0, 115, 255, 0.4);
+}
+
+/* Disabled */
+.btn-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
