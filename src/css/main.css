@@ -73,6 +73,12 @@ section {
   background: var(--blue);
 }
 
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -376,33 +382,29 @@ section {
 
 .screenshot-frame {
   flex-shrink: 0;
-  width: 220px;
-  height: 450px;
+  width: 640px;
+  height: 420px;
   background: rgba(255,255,255,0.05);
   border: 1.5px solid rgba(255,255,255,0.12);
-  border-radius: 36px;
+  border-radius: 16px;
   scroll-snap-align: start;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
   color: var(--text-subtle);
   font-size: 0.8rem;
   transition: transform 0.3s var(--ease-spring);
-  position: relative;
 }
 
 .screenshot-frame:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .screenshot-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 34px;
 }
 
 .screenshot-placeholder-icon {
