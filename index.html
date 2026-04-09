@@ -77,23 +77,23 @@
           </p>
 
           <div class="hero-badges">
-            <!-- iOS -->
-            <a class="badge-store btn-disabled" href="#" title="">
+            <!-- iOS — remplacer # par l'URL App Store -->
+            <a href="#" class="apple-badge-link btn-disabled" title="Bientôt disponible">
               <span class="soon-label" data-fr="Bientôt" data-en="Soon">Bientôt</span>
-              <span class="badge-store-icon">📱</span>
-              <div class="badge-store-text">
-                <small data-fr="Télécharger sur l'" data-en="Download on the">Télécharger sur l'</small>
-                <strong>App Store</strong>
-              </div>
+              <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/fr-fr"
+                   alt="Télécharger dans l'App Store"
+                   data-alt-fr="Télécharger dans l'App Store"
+                   data-alt-en="Download on the App Store"
+                   class="apple-badge-img" />
             </a>
-            <!-- macOS -->
-            <a class="badge-store btn-disabled" href="#" title="">
+            <!-- macOS — remplacer # par l'URL Mac App Store -->
+            <a href="#" class="apple-badge-link btn-disabled" title="Bientôt disponible">
               <span class="soon-label" data-fr="Bientôt" data-en="Soon">Bientôt</span>
-              <span class="badge-store-icon">💻</span>
-              <div class="badge-store-text">
-                <small data-fr="Disponible sur le" data-en="Available on the">Disponible sur le</small>
-                <strong>Mac App Store</strong>
-              </div>
+              <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-mac-app-store/black/fr-fr"
+                   alt="Télécharger dans le Mac App Store"
+                   data-alt-fr="Télécharger dans le Mac App Store"
+                   data-alt-en="Download on the Mac App Store"
+                   class="apple-badge-img" />
             </a>
           </div>
         </div>
@@ -134,7 +134,9 @@
       <div class="features-grid">
 
         <div class="feature-card glass glass-hover reveal">
-          <div class="feature-icon">🧩</div>
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="7" height="7" rx="1"/><rect x="15" y="3" width="7" height="7" rx="1"/><rect x="2" y="14" width="7" height="7" rx="1"/><rect x="15" y="14" width="7" height="7" rx="1"/></svg>
+          </div>
           <h3 class="feature-title"
               data-fr="Bibliothèque"
               data-en="Library">Bibliothèque</h3>
@@ -146,7 +148,9 @@
         </div>
 
         <div class="feature-card glass glass-hover reveal">
-          <div class="feature-icon">🚀</div>
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
           <h3 class="feature-title"
               data-fr="Publication"
               data-en="Publish">Publication</h3>
@@ -158,7 +162,9 @@
         </div>
 
         <div class="feature-card glass glass-hover reveal">
-          <div class="feature-icon">💰</div>
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
           <h3 class="feature-title"
               data-fr="Monétisation"
               data-en="Monetization">Monétisation</h3>
@@ -191,26 +197,99 @@
       </div>
 
       <div class="screenshots-scroll">
-        <!-- Placeholders — remplacer src par de vraies captures -->
+        <!-- Placeholders — remplacer par <img src="assets/screenshots/home.png" /> -->
         <div class="screenshot-frame">
-          <span class="screenshot-placeholder-icon">🏠</span>
           <span data-fr="Accueil" data-en="Home">Accueil</span>
         </div>
         <div class="screenshot-frame">
-          <span class="screenshot-placeholder-icon">🧩</span>
           <span data-fr="Composant" data-en="Component">Composant</span>
         </div>
         <div class="screenshot-frame">
-          <span class="screenshot-placeholder-icon">🔍</span>
           <span data-fr="Recherche" data-en="Search">Recherche</span>
         </div>
         <div class="screenshot-frame">
-          <span class="screenshot-placeholder-icon">🚀</span>
           <span data-fr="Publication" data-en="Publish">Publication</span>
         </div>
         <div class="screenshot-frame">
-          <span class="screenshot-placeholder-icon">👤</span>
           <span data-fr="Profil" data-en="Profile">Profil</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VIDEO ─────────────────────────────────────────── -->
+  <section id="video">
+    <div class="container">
+      <span class="section-label" data-fr="Présentation" data-en="Overview">Présentation</span>
+      <h2 class="section-title reveal"
+          data-fr="Voir Codas en action"
+          data-en="See Codas in action">
+        Voir Codas en action
+      </h2>
+
+      <div class="video-wrapper reveal">
+        <!-- Remplacer par <iframe src="https://www.youtube.com/embed/VIDEO_ID" ...></iframe> -->
+        <div class="video-placeholder">
+          <div class="video-play-btn">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          <p data-fr="Vidéo de présentation — bientôt disponible" data-en="Presentation video — coming soon">Vidéo de présentation — bientôt disponible</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CREATORS ───────────────────────────────────────── -->
+  <section id="creators">
+    <div class="container">
+      <div class="creators-grid">
+        <div class="creators-content reveal">
+          <span class="section-label" data-fr="Pour les créateurs" data-en="For creators">Pour les créateurs</span>
+          <h2 class="section-title"
+              data-fr="Monétisez votre expertise SwiftUI"
+              data-en="Monetize your SwiftUI expertise">
+            Monétisez votre expertise SwiftUI
+          </h2>
+          <p class="section-subtitle"
+             data-fr="Publiez vos composants, fixez votre prix, et recevez vos versements automatiquement chaque mois."
+             data-en="Publish your components, set your price, and receive your payouts automatically every month.">
+            Publiez vos composants, fixez votre prix, et recevez vos versements automatiquement chaque mois.
+          </p>
+          <ul class="creators-list">
+            <li>
+              <div class="creators-check">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span data-fr="Publication en moins d'une minute" data-en="Publish in under a minute">Publication en moins d'une minute</span>
+            </li>
+            <li>
+              <div class="creators-check">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span data-fr="Prix libre entre 0,99 € et 99,99 €" data-en="Free pricing from €0.99 to €99.99">Prix libre entre 0,99 € et 99,99 €</span>
+            </li>
+            <li>
+              <div class="creators-check">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span data-fr="Versements mensuels automatiques via PayPal" data-en="Automatic monthly payouts via PayPal">Versements mensuels automatiques via PayPal</span>
+            </li>
+            <li>
+              <div class="creators-check">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span data-fr="Protection anti-copie du code source" data-en="Source code copy protection">Protection anti-copie du code source</span>
+            </li>
+          </ul>
+        </div>
+        <div class="creators-visual reveal">
+          <div class="creators-card glass">
+            <div class="creators-card-header">
+              <span data-fr="Vos revenus ce mois" data-en="Your earnings this month">Vos revenus ce mois</span>
+            </div>
+            <div class="creators-card-amount">€ —</div>
+            <div class="creators-card-sub" data-fr="En attente de votre premier composant" data-en="Waiting for your first component">En attente de votre premier composant</div>
+          </div>
         </div>
       </div>
     </div>
@@ -311,21 +390,19 @@
           Codas arrive bientôt sur iOS, iPadOS et macOS.
         </p>
         <div class="download-badges">
-          <a class="badge-store btn-disabled" href="#">
+          <!-- iOS — remplacer # par l'URL App Store -->
+          <a href="#" class="apple-badge-link btn-disabled" title="Bientôt disponible">
             <span class="soon-label" data-fr="Bientôt" data-en="Soon">Bientôt</span>
-            <span class="badge-store-icon">📱</span>
-            <div class="badge-store-text">
-              <small data-fr="Télécharger sur l'" data-en="Download on the">Télécharger sur l'</small>
-              <strong>App Store</strong>
-            </div>
+            <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/fr-fr"
+                 alt="Télécharger dans l'App Store"
+                 class="apple-badge-img" />
           </a>
-          <a class="badge-store btn-disabled" href="#">
+          <!-- macOS — remplacer # par l'URL Mac App Store -->
+          <a href="#" class="apple-badge-link btn-disabled" title="Bientôt disponible">
             <span class="soon-label" data-fr="Bientôt" data-en="Soon">Bientôt</span>
-            <span class="badge-store-icon">💻</span>
-            <div class="badge-store-text">
-              <small data-fr="Disponible sur le" data-en="Available on the">Disponible sur le</small>
-              <strong>Mac App Store</strong>
-            </div>
+            <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-mac-app-store/black/fr-fr"
+                 alt="Télécharger dans le Mac App Store"
+                 class="apple-badge-img" />
           </a>
         </div>
       </div>
