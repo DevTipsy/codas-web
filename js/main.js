@@ -1,17 +1,15 @@
 // ── main.js ──────────────────────────────────────────────
 
-// Le navigateur restaure par défaut la position de scroll au reload,
-// ce qui peut renvoyer l'utilisateur tout en bas (sur le footer) après
-// un refresh. On force un retour en haut.
+// Toujours charger la page tout en haut (même après un refresh ou si une
+// ancre est présente dans l'URL) — on veut le comportement "première
+// visite" à chaque fois.
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
-window.addEventListener('load', () => {
-  // Si l'URL n'a pas d'ancre, on remonte tout en haut.
-  if (!location.hash) {
-    window.scrollTo(0, 0);
-  }
-});
+// On scroll dès que possible (avant peinture quand on peut), puis
+// re-scroll au load au cas où le navigateur aurait sauté à une ancre.
+window.scrollTo(0, 0);
+window.addEventListener('load', () => window.scrollTo(0, 0));
 
 document.addEventListener('DOMContentLoaded', () => {
 
