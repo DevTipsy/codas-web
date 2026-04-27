@@ -25,51 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
       : 'none';
   }, { passive: true });
 
-  // ── Screenshots drag-to-scroll (sur tous les conteneurs) ─
+  // ── Screenshots : molette verticale → scroll horizontal ──
+  // Pas d'interaction drag/click sur les captures — uniquement la
+  // scrollbar native et la molette.
   document.querySelectorAll('.screenshots-scroll').forEach(scroll => {
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    scroll.addEventListener('mousedown', e => {
-      isDown = true;
-      scroll.style.cursor = 'grabbing';
-      startX = e.pageX - scroll.offsetLeft;
-      scrollLeft = scroll.scrollLeft;
-    });
-    scroll.addEventListener('mouseleave', () => {
-      isDown = false;
-      scroll.style.cursor = 'grab';
-    });
-    scroll.addEventListener('mouseup', () => {
-      isDown = false;
-      scroll.style.cursor = 'grab';
-    });
-    scroll.addEventListener('mousemove', e => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - scroll.offsetLeft;
-      const walk = (x - startX) * 1.5;
-      scroll.scrollLeft = scrollLeft - walk;
-    });
-
-    scroll.style.cursor = 'grab';
-
-    // ── Molette → scroll horizontal ─────────────────────
-    // On ne consomme l'événement que si l'utilisateur a un mouvement
-    // vertical dominant (deltaY > deltaX) ET qu'on a effectivement de la
-    // marge à scroller dans ce sens — sinon on laisse la page scroller
-    // verticalement comme d'habitude.
     scroll.addEventListener('wheel', e => {
       if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
       const max = scroll.scrollWidth - scroll.clientWidth;
       if (max <= 0) return;
-      const next = scroll.scrollLeft + e.deltaY;
       const atStart = scroll.scrollLeft <= 0 && e.deltaY < 0;
       const atEnd   = scroll.scrollLeft >= max && e.deltaY > 0;
       if (atStart || atEnd) return;
       e.preventDefault();
-      scroll.scrollLeft = next;
+      scroll.scrollLeft = scroll.scrollLeft + e.deltaY;
     }, { passive: false });
   });
 
