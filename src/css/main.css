@@ -429,7 +429,10 @@ section {
   display: flex;
   gap: 24px;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  /* scroll-snap proximity (et non mandatory) : le snap "tire" trop fort
+     quand l'inertie est faible côté gauche et donne l'impression que
+     le scroll bloque. proximity ne snap que si on est déjà très proche. */
+  scroll-snap-type: x proximity;
   padding: 20px 4px 16px;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.25) transparent;

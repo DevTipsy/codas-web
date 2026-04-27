@@ -1,5 +1,18 @@
 // ── main.js ──────────────────────────────────────────────
 
+// Le navigateur restaure par défaut la position de scroll au reload,
+// ce qui peut renvoyer l'utilisateur tout en bas (sur le footer) après
+// un refresh. On force un retour en haut.
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.addEventListener('load', () => {
+  // Si l'URL n'a pas d'ancre, on remonte tout en haut.
+  if (!location.hash) {
+    window.scrollTo(0, 0);
+  }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // ── Scroll reveal ──────────────────────────────────────
