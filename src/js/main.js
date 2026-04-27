@@ -25,9 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
       : 'none';
   }, { passive: true });
 
-  // ── Screenshots drag-to-scroll ─────────────────────────
-  const scroll = document.querySelector('.screenshots-scroll');
-  if (scroll) {
+  // ── Screenshots drag-to-scroll (sur tous les conteneurs) ─
+  document.querySelectorAll('.screenshots-scroll').forEach(scroll => {
     let isDown = false;
     let startX;
     let scrollLeft;
@@ -55,6 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     scroll.style.cursor = 'grab';
-  }
+  });
 
 });
+
+// ── Platform switcher (macOS / iOS) ─────────────────────
+function setPlatform(target) {
+  document.querySelectorAll('.platform-tab').forEach(btn => {
+    const isActive = btn.dataset.target === target;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+  });
+  document.querySelectorAll('.screenshots-scroll').forEach(panel => {
+    panel.hidden = panel.dataset.platform !== target;
+  });
+}
