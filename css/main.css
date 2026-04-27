@@ -471,16 +471,6 @@ section {
     width: 260px;
     height: 414px;
   }
-  .screenshot-frame--landscape {
-    width: 320px;
-    height: 200px;
-  }
-}
-
-/* iOS / iPadOS captures (paysage) */
-.screenshot-frame--landscape {
-  width: 540px;
-  height: 340px;
 }
 
 .screenshot-placeholder-icon {
@@ -513,7 +503,7 @@ section {
 }
 
 .video-wrapper {
-  margin-top: 48px;
+  margin: 48px auto 0;
   border-radius: var(--radius-lg);
   overflow: hidden;
   aspect-ratio: 16 / 9;
