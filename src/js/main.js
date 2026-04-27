@@ -54,6 +54,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     scroll.style.cursor = 'grab';
+
+    // ── Molette → scroll horizontal ─────────────────────
+    // On ne consomme l'événement que si l'utilisateur a un mouvement
+    // vertical dominant (deltaY > deltaX) ET qu'on a effectivement de la
+    // marge à scroller dans ce sens — sinon on laisse la page scroller
+    // verticalement comme d'habitude.
+    scroll.addEventListener('wheel', e => {
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+      const max = scroll.scrollWidth - scroll.clientWidth;
+      if (max <= 0) return;
+      const next = scroll.scrollLeft + e.deltaY;
+      const atStart = scroll.scrollLeft <= 0 && e.deltaY < 0;
+      const atEnd   = scroll.scrollLeft >= max && e.deltaY > 0;
+      if (atStart || atEnd) return;
+      e.preventDefault();
+      scroll.scrollLeft = next;
+    }, { passive: false });
   });
 
 });
