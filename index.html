@@ -187,16 +187,27 @@
         </p>
       </div>
 
-      <div class="screenshots-scroll">
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen1.png" alt="Codas screenshot 1" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen2.png" alt="Codas screenshot 2" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen3.png" alt="Codas screenshot 3" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen4.png" alt="Codas screenshot 4" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen5.png" alt="Codas screenshot 5" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen6.png" alt="Codas screenshot 6" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen7.png" alt="Codas screenshot 7" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen8.png" alt="Codas screenshot 8" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen9.png" alt="Codas screenshot 9" /></div>
+      <div class="platform-tabs" role="tablist">
+        <button class="platform-tab active" role="tab" aria-selected="true" data-target="mac" onclick="setPlatform('mac')">macOS</button>
+        <button class="platform-tab" role="tab" aria-selected="false" data-target="ios" onclick="setPlatform('ios')">iOS / iPadOS</button>
+      </div>
+
+      <div class="screenshots-scroll" data-platform="mac">
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen1.png" alt="Codas macOS 1" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen2.png" alt="Codas macOS 2" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen3.png" alt="Codas macOS 3" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen4.png" alt="Codas macOS 4" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen5.png" alt="Codas macOS 5" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen6.png" alt="Codas macOS 6" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen7.png" alt="Codas macOS 7" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen8.png" alt="Codas macOS 8" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen9.png" alt="Codas macOS 9" /></div>
+      </div>
+
+      <div class="screenshots-scroll screenshots-scroll--ios" data-platform="ios" hidden>
+        <div class="screenshot-frame screenshot-frame--landscape"><img draggable="false" src="assets/screenshots-ios/ios1.png" alt="Codas iOS 1" /></div>
+        <div class="screenshot-frame screenshot-frame--landscape"><img draggable="false" src="assets/screenshots-ios/ios2.png" alt="Codas iOS 2" /></div>
+        <div class="screenshot-frame screenshot-frame--landscape"><img draggable="false" src="assets/screenshots-ios/ios3.png" alt="Codas iOS 3" /></div>
       </div>
     </div>
   </section>
@@ -212,13 +223,16 @@
       </h2>
 
       <div class="video-wrapper reveal">
-        <!-- Remplacer par <iframe src="https://www.youtube.com/embed/VIDEO_ID" ...></iframe> -->
-        <div class="video-placeholder">
-          <div class="video-play-btn">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          </div>
-          <p data-fr="Vidéo de présentation — bientôt disponible" data-en="Presentation video — coming soon">Vidéo de présentation — bientôt disponible</p>
-        </div>
+        <video class="video-player"
+               src="assets/video/dragdrop.mp4"
+               autoplay
+               muted
+               loop
+               playsinline
+               controls
+               preload="metadata">
+          <p data-fr="Votre navigateur ne supporte pas la vidéo HTML5." data-en="Your browser does not support HTML5 video.">Votre navigateur ne supporte pas la vidéo HTML5.</p>
+        </video>
       </div>
     </div>
   </section>
