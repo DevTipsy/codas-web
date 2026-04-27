@@ -491,6 +491,15 @@ section {
   display: block;
 }
 
+/* iOS : on veut voir la hauteur entière de la capture (pas de crop). */
+.screenshots-scroll--ios .screenshot-frame img {
+  object-fit: contain;
+}
+
+.screenshots-scroll--ios .screenshot-frame {
+  background: #000;
+}
+
 @media (max-width: 640px) {
   .screenshot-frame {
     width: 260px;
