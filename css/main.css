@@ -430,12 +430,29 @@ section {
   gap: 24px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 20px 0 40px;
-  scrollbar-width: none;
+  padding: 20px 4px 16px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
 }
 
 .screenshots-scroll::-webkit-scrollbar {
-  display: none;
+  height: 8px;
+}
+
+.screenshots-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+  margin: 0 4px;
+}
+
+.screenshots-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  transition: background 0.2s;
+}
+
+.screenshots-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--blue);
 }
 
 .screenshot-frame {
@@ -455,6 +472,14 @@ section {
   transition: transform 0.3s var(--ease-spring);
 }
 
+/* iOS / iPadOS : ratio iPhone 19.5:9 → cadre plus étroit pour ne pas
+   zoomer/déformer les captures (1290×2796). */
+.screenshots-scroll--ios .screenshot-frame {
+  width: 240px;
+  height: 520px;
+  border-radius: 32px;
+}
+
 .screenshot-frame:hover {
   transform: scale(1.02);
 }
@@ -470,6 +495,11 @@ section {
   .screenshot-frame {
     width: 260px;
     height: 414px;
+  }
+  .screenshots-scroll--ios .screenshot-frame {
+    width: 200px;
+    height: 433px;
+    border-radius: 28px;
   }
 }
 
