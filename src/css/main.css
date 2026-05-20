@@ -475,12 +475,19 @@ section {
   pointer-events: none;
 }
 
-/* iOS / iPadOS : ratio iPhone 19.5:9 → cadre plus étroit pour ne pas
-   zoomer/déformer les captures (1290×2796). */
+/* iOS : ratio iPhone 19.5:9 → cadre plus étroit pour ne pas zoomer/
+   déformer les captures. */
 .screenshots-scroll--ios .screenshot-frame {
   width: 240px;
   height: 520px;
   border-radius: 32px;
+}
+
+/* iPadOS : ratio paysage ~4:3, cadre plus large. */
+.screenshots-scroll--ipad .screenshot-frame {
+  width: 640px;
+  height: 460px;
+  border-radius: 18px;
 }
 
 .screenshot-frame img {
@@ -490,12 +497,14 @@ section {
   display: block;
 }
 
-/* iOS : on veut voir la hauteur entière de la capture (pas de crop). */
-.screenshots-scroll--ios .screenshot-frame img {
+/* iOS / iPad : on veut voir la capture entière (pas de crop). */
+.screenshots-scroll--ios .screenshot-frame img,
+.screenshots-scroll--ipad .screenshot-frame img {
   object-fit: contain;
 }
 
-.screenshots-scroll--ios .screenshot-frame {
+.screenshots-scroll--ios .screenshot-frame,
+.screenshots-scroll--ipad .screenshot-frame {
   background: #000;
 }
 
@@ -540,11 +549,22 @@ section {
   background: var(--bg-2);
 }
 
+.video-subtitle {
+  margin: 56px auto 16px;
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-muted, rgba(255,255,255,0.85));
+  letter-spacing: 0.01em;
+}
+
+.video-subtitle:first-of-type {
+  margin-top: 40px;
+}
+
 .video-wrapper {
   display: block;
-  margin-top: 48px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   border-radius: var(--radius-lg);
   overflow: hidden;
   aspect-ratio: 16 / 9;
