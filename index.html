@@ -189,7 +189,8 @@
 
       <div class="platform-tabs" role="tablist">
         <button class="platform-tab active" role="tab" aria-selected="true" data-target="mac" onclick="setPlatform('mac')">macOS</button>
-        <button class="platform-tab" role="tab" aria-selected="false" data-target="ios" onclick="setPlatform('ios')">iOS / iPadOS</button>
+        <button class="platform-tab" role="tab" aria-selected="false" data-target="ios" onclick="setPlatform('ios')">iOS</button>
+        <button class="platform-tab" role="tab" aria-selected="false" data-target="ipad" onclick="setPlatform('ipad')">iPadOS</button>
       </div>
 
       <div class="screenshots-scroll" data-platform="mac">
@@ -204,25 +205,38 @@
         <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen9.png" alt="Codas macOS 9" /></div>
       </div>
 
-      <!-- Ordre = parcours utilisateur réel (login → home → drill-down →
-           tabbar publish → favoris → profil → recherche). Pour réordonner,
-           tu peux soit renommer les fichiers (le préfixe NN- guide l'ordre
-           visuel dans le repo), soit déplacer les <div> ci-dessous. -->
+      <!-- Ordre = ordre alphabétique des fichiers (a → m), correspondant au
+           parcours app voulu côté design. Pour réordonner, déplace les <div>. -->
       <div class="screenshots-scroll screenshots-scroll--ios" data-platform="ios" hidden>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/02-home-grid.png" alt="Codas iOS — Accueil grille" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/03-home-list.png" alt="Codas iOS — Accueil liste" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/04-home-filters.png" alt="Codas iOS — Filtres accueil" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/05-home-cat.png" alt="Codas iOS — Catégories uniquement" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/07-list-components.png" alt="Codas iOS — Liste de la catégorie Boutons" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/detail-chart.png" alt="Codas iOS — Détail composant graphique" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/detail-locked.png" alt="Codas iOS — Détail composant payant" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/01-login.png" alt="Codas iOS — Connexion" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/08-publish.png" alt="Codas iOS — Publier" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/06-categories.png" alt="Codas iOS — Catégories" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/09-fav-components.png" alt="Codas iOS — Favoris composants" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/10-fav-creators.png" alt="Codas iOS — Favoris créateurs" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/11-profile.png" alt="Codas iOS — Profil" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/12-search.png" alt="Codas iOS — Recherche" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/01-a.png" alt="Codas iOS 1" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/02-b.png" alt="Codas iOS 2" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/03-c.png" alt="Codas iOS 3" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/04-d.png" alt="Codas iOS 4" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/05-e.png" alt="Codas iOS 5" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/06-f.png" alt="Codas iOS 6" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/07-g.png" alt="Codas iOS 7" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/08-h.png" alt="Codas iOS 8" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/09-i.png" alt="Codas iOS 9" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/10-j.png" alt="Codas iOS 10" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/11-k.png" alt="Codas iOS 11" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/12-l.png" alt="Codas iOS 12" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/13-m.png" alt="Codas iOS 13" /></div>
+      </div>
+
+      <div class="screenshots-scroll screenshots-scroll--ipad" data-platform="ipad" hidden>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/01.png" alt="Codas iPadOS 1" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/02.png" alt="Codas iPadOS 2" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/03.png" alt="Codas iPadOS 3" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/04.png" alt="Codas iPadOS 4" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/05.png" alt="Codas iPadOS 5" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/06.png" alt="Codas iPadOS 6" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/07.png" alt="Codas iPadOS 7" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/08.png" alt="Codas iPadOS 8" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/09.png" alt="Codas iPadOS 9" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/10.png" alt="Codas iPadOS 10" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/11.png" alt="Codas iPadOS 11" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/12.png" alt="Codas iPadOS 12" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/13.png" alt="Codas iPadOS 13" /></div>
       </div>
     </div>
   </section>
@@ -230,13 +244,31 @@
   <!-- ── VIDEO ─────────────────────────────────────────── -->
   <section id="video">
     <div class="container">
-      <span class="section-label" data-fr="Présentation" data-en="Overview">Présentation</span>
       <h2 class="section-title reveal"
           data-fr="Voir Codas en action"
           data-en="See Codas in action">
         Voir Codas en action
       </h2>
 
+      <h3 class="video-subtitle reveal"
+          data-fr="Présentation générale"
+          data-en="General overview">Présentation générale</h3>
+      <div class="video-wrapper reveal">
+        <video class="video-player"
+               src="assets/video/presentation.mp4"
+               autoplay
+               muted
+               loop
+               playsinline
+               controls
+               preload="metadata">
+          <p data-fr="Votre navigateur ne supporte pas la vidéo HTML5." data-en="Your browser does not support HTML5 video.">Votre navigateur ne supporte pas la vidéo HTML5.</p>
+        </video>
+      </div>
+
+      <h3 class="video-subtitle reveal"
+          data-fr="Drag and Drop"
+          data-en="Drag and Drop">Drag and Drop</h3>
       <div class="video-wrapper reveal">
         <video class="video-player"
                src="assets/video/dragdrop.mp4"
