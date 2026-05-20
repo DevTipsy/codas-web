@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCP — Codas pour ton IA</title>
+  <meta name="description" content="Connecte Claude Code, Cursor, ChatGPT et autres assistants IA au catalogue de composants SwiftUI Codas via le protocole MCP." />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    .mcp-page {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+    .mcp-hero {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .mcp-hero .kicker {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 16px;
+    }
+    .mcp-hero h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .mcp-hero p.lead {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .step {
+      margin-bottom: 56px;
+    }
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-right: 12px;
+    }
+    .step h2 {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .step p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .tabs {
+      display: flex;
+      gap: 4px;
+      border-bottom: 1px solid var(--glass-border);
+      margin-bottom: 0;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+    .tab {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 12px 18px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      white-space: nowrap;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .tab:hover {
+      color: var(--text);
+    }
+    .tab.active {
+      color: var(--blue-light);
+      border-bottom-color: var(--blue);
+    }
+    .tab-panel {
+      display: none;
+      padding-top: 20px;
+    }
+    .tab-panel.active {
+      display: block;
+    }
+    .code-block {
+      position: relative;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 20px 56px 20px 24px;
+      font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #e8eef7;
+      overflow-x: auto;
+      white-space: pre;
+      margin-bottom: 12px;
+    }
+    .code-block code {
+      color: inherit;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-muted);
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .copy-btn:hover {
+      background: rgba(255, 255, 255, 0.14);
+      color: var(--text);
+    }
+    .copy-btn.copied {
+      background: rgba(34, 197, 94, 0.15);
+      border-color: rgba(34, 197, 94, 0.4);
+      color: #4ade80;
+    }
+    .note {
+      background: rgba(0, 115, 255, 0.08);
+      border: 1px solid rgba(0, 115, 255, 0.2);
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+    .note strong {
+      color: var(--text);
+    }
+    .file-path {
+      font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      font-size: 0.85rem;
+      color: var(--blue-light);
+      background: rgba(0, 115, 255, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .prompts {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) {
+      .prompts { grid-template-columns: 1fr 1fr; }
+    }
+    .prompt-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 18px;
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .prompt-card::before {
+      content: "💬 ";
+      margin-right: 4px;
+    }
+    .faq-item {
+      border: 1px solid var(--glass-border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .faq-item h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .faq-item p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar" class="glass-nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/appicon.png" alt="Codas" class="nav-logo-img" draggable="false" />
+      </a>
+    </div>
+  </nav>
+
+  <div class="mcp-page">
+
+    <!-- ── HERO ─────────────────────────────────────────── -->
+    <div class="mcp-hero">
+      <span class="kicker" data-fr="Intégration IA" data-en="AI Integration">Intégration IA</span>
+      <h1 data-fr="Codas pour ton IA" data-en="Codas for your AI">Codas pour ton IA</h1>
+      <p class="lead"
+         data-fr="Connecte Claude Code, Cursor, ChatGPT et autres assistants IA au catalogue Codas via MCP. Découvre des composants SwiftUI et intègre-les directement dans tes projets sans quitter ton éditeur."
+         data-en="Connect Claude Code, Cursor, ChatGPT and other AI assistants to the Codas catalog through MCP. Discover SwiftUI components and integrate them straight into your projects without leaving your editor.">
+        Connecte Claude Code, Cursor, ChatGPT et autres assistants IA au catalogue Codas via MCP. Découvre des composants SwiftUI et intègre-les directement dans tes projets sans quitter ton éditeur.
+      </p>
+    </div>
+
+    <!-- ── STEP 1 — KEY ─────────────────────────────────── -->
+    <div class="step">
+      <h2><span class="step-number">1</span>
+        <span data-fr="Génère ta clé API" data-en="Generate your API key">Génère ta clé API</span>
+      </h2>
+      <p data-fr="Ouvre l'app Codas sur ton iPhone, iPad ou Mac, va dans <strong>Profil → Clés API</strong> et appuie sur <strong>Générer une nouvelle clé</strong>. La clé s'affiche une seule fois — copie-la immédiatement."
+         data-en="Open the Codas app on your iPhone, iPad or Mac, go to <strong>Profile → API Keys</strong> and tap <strong>Generate a new key</strong>. The key is shown only once — copy it right away.">
+        Ouvre l'app Codas sur ton iPhone, iPad ou Mac, va dans <strong>Profil → Clés API</strong> et appuie sur <strong>Générer une nouvelle clé</strong>. La clé s'affiche une seule fois — copie-la immédiatement.
+      </p>
+      <div class="note">
+        <strong data-fr="Format :" data-en="Format:">Format :</strong>
+        <span data-fr="ta clé commence par <code>codas_pk_</code> et fait une quarantaine de caractères. Tu peux générer jusqu'à 10 clés actives en parallèle (une par machine ou par outil)."
+              data-en="your key starts with <code>codas_pk_</code> and is around 40 characters long. You can have up to 10 active keys at the same time (one per machine or per tool).">
+          ta clé commence par <code>codas_pk_</code> et fait une quarantaine de caractères. Tu peux générer jusqu'à 10 clés actives en parallèle (une par machine ou par outil).
+        </span>
+      </div>
+    </div>
+
+    <!-- ── STEP 2 — CONFIG ──────────────────────────────── -->
+    <div class="step">
+      <h2><span class="step-number">2</span>
+        <span data-fr="Ajoute Codas dans ton client IA" data-en="Add Codas to your AI client">Ajoute Codas dans ton client IA</span>
+      </h2>
+      <p data-fr="Choisis ton client et copie la commande ou la config. Remplace <code>codas_pk_xxx</code> par ta vraie clé."
+         data-en="Pick your client and copy the command or config. Replace <code>codas_pk_xxx</code> with your actual key.">
+        Choisis ton client et copie la commande ou la config. Remplace <code>codas_pk_xxx</code> par ta vraie clé.
+      </p>
+
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-target="claudecode" role="tab">Claude Code</button>
+        <button class="tab" data-target="cursor" role="tab">Cursor</button>
+        <button class="tab" data-target="windsurf" role="tab">Windsurf</button>
+        <button class="tab" data-target="chatgpt" role="tab">ChatGPT Desktop</button>
+        <button class="tab" data-target="zed" role="tab">Zed</button>
+        <button class="tab" data-target="other" role="tab" data-fr="Autre" data-en="Other">Autre</button>
+      </div>
+
+      <!-- Claude Code -->
+      <div class="tab-panel active" data-panel="claudecode">
+        <p data-fr="Une seule commande dans ton terminal :" data-en="One command in your terminal:">Une seule commande dans ton terminal :</p>
+        <div class="code-block"><button class="copy-btn">Copier</button><code>claude mcp add codas https://mcp.codaslibrary.app/mcp \
+  --transport http \
+  --header "Authorization: Bearer codas_pk_xxx"</code></div>
+        <p data-fr="Vérifie que Codas apparaît bien :" data-en="Check that Codas shows up:">Vérifie que Codas apparaît bien :</p>
+        <div class="code-block"><button class="copy-btn">Copier</button><code>claude mcp list</code></div>
+      </div>
+
+      <!-- Cursor -->
+      <div class="tab-panel" data-panel="cursor">
+        <p data-fr="Ajoute le serveur dans <span class='file-path'>~/.cursor/mcp.json</span> :"
+           data-en="Add the server to <span class='file-path'>~/.cursor/mcp.json</span>:">
+          Ajoute le serveur dans <span class="file-path">~/.cursor/mcp.json</span> :
+        </p>
+        <div class="code-block"><button class="copy-btn">Copier</button><code>{
+  "mcpServers": {
+    "codas": {
+      "url": "https://mcp.codaslibrary.app/mcp",
+      "headers": {
+        "Authorization": "Bearer codas_pk_xxx"
+      }
+    }
+  }
+}</code></div>
+        <p data-fr="Redémarre Cursor pour charger la config." data-en="Restart Cursor to load the config.">Redémarre Cursor pour charger la config.</p>
+      </div>
+
+      <!-- Windsurf -->
+      <div class="tab-panel" data-panel="windsurf">
+        <p data-fr="Ajoute dans <span class='file-path'>~/.codeium/windsurf/mcp_config.json</span> :"
+           data-en="Add to <span class='file-path'>~/.codeium/windsurf/mcp_config.json</span>:">
+          Ajoute dans <span class="file-path">~/.codeium/windsurf/mcp_config.json</span> :
+        </p>
+        <div class="code-block"><button class="copy-btn">Copier</button><code>{
+  "mcpServers": {
+    "codas": {
+      "serverUrl": "https://mcp.codaslibrary.app/mcp",
+      "headers": {
+        "Authorization": "Bearer codas_pk_xxx"
+      }
+    }
+  }
+}</code></div>
+      </div>
+
+      <!-- ChatGPT Desktop -->
+      <div class="tab-panel" data-panel="chatgpt">
+        <p data-fr="Dans ChatGPT Desktop : <strong>Settings → Beta features → Model Context Protocol</strong>. Ajoute un nouveau connecteur :"
+           data-en="In ChatGPT Desktop: <strong>Settings → Beta features → Model Context Protocol</strong>. Add a new connector:">
+          Dans ChatGPT Desktop : <strong>Settings → Beta features → Model Context Protocol</strong>. Ajoute un nouveau connecteur :
+        </p>
+        <div class="code-block"><button class="copy-btn">Copier</button><code>Name:    codas
+URL:     https://mcp.codaslibrary.app/mcp
+Headers: Authorization: Bearer codas_pk_xxx</code></div>
+      </div>
+
+      <!-- Zed -->
+      <div class="tab-panel" data-panel="zed">
+        <p data-fr="Dans les <strong>Settings</strong> de Zed (<code>cmd+,</code>) :" data-en="In Zed <strong>Settings</strong> (<code>cmd+,</code>):">
+          Dans les <strong>Settings</strong> de Zed (<code>cmd+,</code>) :
+        </p>
+        <div class="code-block"><button class="copy-btn">Copier</button><code>{
+  "context_servers": {
+    "codas": {
+      "command": null,
+      "url": "https://mcp.codaslibrary.app/mcp",
+      "headers": {
+        "Authorization": "Bearer codas_pk_xxx"
+      }
+    }
+  }
+}</code></div>
+      </div>
+
+      <!-- Other -->
+      <div class="tab-panel" data-panel="other">
+        <p data-fr="Tout client MCP supportant le transport HTTP fonctionne. Les paramètres à fournir :"
+           data-en="Any MCP client supporting HTTP transport works. Required parameters:">
+          Tout client MCP supportant le transport HTTP fonctionne. Les paramètres à fournir :
+        </p>
+        <div class="code-block"><button class="copy-btn">Copier</button><code>URL       : https://mcp.codaslibrary.app/mcp
+Transport : HTTP (Streamable)
+Auth      : Bearer codas_pk_xxx (header Authorization)</code></div>
+        <p data-fr="Le serveur supporte le protocole MCP 2025-06-18." data-en="The server supports MCP protocol 2025-06-18.">Le serveur supporte le protocole MCP 2025-06-18.</p>
+      </div>
+    </div>
+
+    <!-- ── STEP 3 — TEST ────────────────────────────────── -->
+    <div class="step">
+      <h2><span class="step-number">3</span>
+        <span data-fr="Teste avec ton assistant" data-en="Test with your assistant">Teste avec ton assistant</span>
+      </h2>
+      <p data-fr="Lance une conversation et essaie ces prompts. L'IA appellera automatiquement les outils Codas."
+         data-en="Start a conversation and try these prompts. The AI will automatically call the Codas tools.">
+        Lance une conversation et essaie ces prompts. L'IA appellera automatiquement les outils Codas.
+      </p>
+      <div class="prompts">
+        <div class="prompt-card" data-fr="Liste-moi les composants populaires de Codas." data-en="List me popular Codas components.">Liste-moi les composants populaires de Codas.</div>
+        <div class="prompt-card" data-fr="Recommande-moi un composant pour un graphique." data-en="Recommend me a component for a chart.">Recommande-moi un composant pour un graphique.</div>
+        <div class="prompt-card" data-fr="Trouve un bouton avec effet glass et intègre-le dans MyView.swift." data-en="Find a glass-effect button and integrate it into MyView.swift.">Trouve un bouton avec effet glass et intègre-le dans MyView.swift.</div>
+        <div class="prompt-card" data-fr="Récupère le code de MiniBarChart." data-en="Get the code for MiniBarChart.">Récupère le code de MiniBarChart.</div>
+      </div>
+    </div>
+
+    <!-- ── TOOLS ────────────────────────────────────────── -->
+    <div class="step">
+      <h2>
+        <span data-fr="Outils disponibles" data-en="Available tools">Outils disponibles</span>
+      </h2>
+      <div class="faq-item">
+        <h3><code>search_components</code></h3>
+        <p data-fr="Recherche par mots-clés. Si tu donnes une phrase multi-mots, on tokenise automatiquement et on cherche chaque mot. Retourne uniquement les métadonnées (pas le code)."
+           data-en="Search by keywords. If you pass a multi-word phrase, it is automatically tokenized and each word is searched. Returns metadata only (not the code).">
+          Recherche par mots-clés. Si tu donnes une phrase multi-mots, on tokenise automatiquement et on cherche chaque mot. Retourne uniquement les métadonnées (pas le code).
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3><code>get_component</code></h3>
+        <p data-fr="Récupère le code SwiftUI complet + les instructions d'intégration + les dépendances. Pour les composants payants non obtenus, l'IA est invitée à orienter l'utilisateur vers l'app pour l'achat."
+           data-en="Fetch the full SwiftUI code + integration instructions + dependencies. For paid components you don't own, the AI is told to redirect you to the app to purchase.">
+          Récupère le code SwiftUI complet + les instructions d'intégration + les dépendances. Pour les composants payants non obtenus, l'IA est invitée à orienter l'utilisateur vers l'app pour l'achat.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3><code>recommend_component</code></h3>
+        <p data-fr="Prend un besoin en langage naturel (FR ou EN), extrait des mots-clés et propose le top 5 composants les plus pertinents avec un score de match. Idéal quand tu ne connais pas le nom exact."
+           data-en="Takes a natural-language need (FR or EN), extracts keywords and suggests the top 5 most relevant components with a match score. Ideal when you don't know the exact name.">
+          Prend un besoin en langage naturel (FR ou EN), extrait des mots-clés et propose le top 5 composants les plus pertinents avec un score de match. Idéal quand tu ne connais pas le nom exact.
+        </p>
+      </div>
+    </div>
+
+    <!-- ── FAQ ──────────────────────────────────────────── -->
+    <div class="step">
+      <h2 data-fr="FAQ" data-en="FAQ">FAQ</h2>
+      <div class="faq-item">
+        <h3 data-fr="Mes composants payants sont-ils accessibles via MCP ?" data-en="Are my paid components accessible via MCP?">Mes composants payants sont-ils accessibles via MCP ?</h3>
+        <p data-fr="Oui — tant que tu les as obtenus dans l'app au préalable. Le serveur vérifie tes achats avant de livrer le code. Pour les payants non obtenus, l'IA reçoit un message expliquant qu'il faut passer par l'app."
+           data-en="Yes — as long as you previously obtained them in the app. The server checks your purchases before delivering the code. For paid components you don't own, the AI gets a message telling you to go through the app.">
+          Oui — tant que tu les as obtenus dans l'app au préalable. Le serveur vérifie tes achats avant de livrer le code. Pour les payants non obtenus, l'IA reçoit un message expliquant qu'il faut passer par l'app.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 data-fr="Comment révoquer une clé compromise ?" data-en="How do I revoke a leaked key?">Comment révoquer une clé compromise ?</h3>
+        <p data-fr="Dans l'app Codas → Profil → Clés API, tape sur l'icône poubelle de la clé concernée. La révocation est immédiate côté serveur."
+           data-en="In the Codas app → Profile → API Keys, tap the trash icon on the relevant key. Revocation is immediate server-side.">
+          Dans l'app Codas → Profil → Clés API, tape sur l'icône poubelle de la clé concernée. La révocation est immédiate côté serveur.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 data-fr="Quelles données sont envoyées au serveur MCP ?" data-en="What data is sent to the MCP server?">Quelles données sont envoyées au serveur MCP ?</h3>
+        <p data-fr="Uniquement les paramètres des outils appelés par l'IA (mots-clés de recherche, UUIDs de composants). Aucun contenu de ton projet local n'est transmis — l'IA filtre côté éditeur."
+           data-en="Only the parameters of the tools called by the AI (search keywords, component UUIDs). No content of your local project is transmitted — the AI filters on the editor side.">
+          Uniquement les paramètres des outils appelés par l'IA (mots-clés de recherche, UUIDs de composants). Aucun contenu de ton projet local n'est transmis — l'IA filtre côté éditeur.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 data-fr="Le code source du serveur MCP est-il public ?" data-en="Is the MCP server source code public?">Le code source du serveur MCP est-il public ?</h3>
+        <p data-fr="Oui, ouvert sur <a href='https://github.com/DevTipsy/codas-mcp' target='_blank' rel='noopener'>github.com/DevTipsy/codas-mcp</a>. Tu peux auditer ce qui est fait de ta clé et même héberger ton propre instance si tu le souhaites."
+           data-en="Yes, open on <a href='https://github.com/DevTipsy/codas-mcp' target='_blank' rel='noopener'>github.com/DevTipsy/codas-mcp</a>. You can audit what is done with your key and even host your own instance if you wish.">
+          Oui, ouvert sur <a href="https://github.com/DevTipsy/codas-mcp" target="_blank" rel="noopener">github.com/DevTipsy/codas-mcp</a>. Tu peux auditer ce qui est fait de ta clé et même héberger ton propre instance si tu le souhaites.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html" class="nav-logo">
+          <img src="assets/appicon.png" alt="Codas" class="nav-logo-img" draggable="false" />
+        </a>
+        <nav class="footer-links">
+          <a href="mcp.html" data-fr="MCP" data-en="MCP">MCP</a>
+          <a href="privacy.html" data-fr="Politique de confidentialité" data-en="Privacy policy">Politique de confidentialité</a>
+          <a href="support.html" data-fr="Support" data-en="Support">Support</a>
+        </nav>
+        <span class="footer-copy">© 2026 Codas. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script>
+    // ── Onglets clients MCP ────────────────────────────
+    document.querySelectorAll('.tab').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.target;
+        document.querySelectorAll('.tab').forEach((b) => b.classList.toggle('active', b === btn));
+        document.querySelectorAll('.tab-panel').forEach((p) => {
+          p.classList.toggle('active', p.dataset.panel === target);
+        });
+      });
+    });
+
+    // ── Boutons "Copier" sur les blocs de code ─────────
+    document.querySelectorAll('.copy-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const code = btn.parentElement.querySelector('code');
+        if (!code) return;
+        const text = code.innerText.trim();
+        navigator.clipboard.writeText(text).then(() => {
+          const original = btn.textContent;
+          btn.classList.add('copied');
+          btn.textContent = (document.documentElement.lang === 'en') ? 'Copied ✓' : 'Copié ✓';
+          setTimeout(() => {
+            btn.classList.remove('copied');
+            btn.textContent = original;
+          }, 1800);
+        }).catch(() => {
+          btn.textContent = '⚠️';
+          setTimeout(() => (btn.textContent = 'Copier'), 1500);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
