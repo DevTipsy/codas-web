@@ -378,6 +378,13 @@ section {
 #mcp {
   background: var(--bg);
   position: relative;
+  text-align: center;
+}
+
+#mcp .section-subtitle {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mcp-card {
@@ -675,6 +682,73 @@ section {
   height: 52px;
   width: auto;
   display: block;
+}
+
+/* ── Badge TestFlight (en attendant un asset Figma) ── */
+
+.testflight-badge-link {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.2s var(--ease-spring);
+}
+.testflight-badge-link:hover { transform: scale(1.04); }
+
+.testflight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 52px;
+  padding: 0 16px 0 14px;
+  border-radius: 12px;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  line-height: 1.1;
+  box-sizing: border-box;
+}
+
+.testflight-badge-icon {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  color: #4a9eff;
+}
+.testflight-badge-icon svg { width: 100%; height: 100%; }
+
+.testflight-badge-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+.testflight-badge-line1 {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.8;
+}
+.testflight-badge-line2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Lien "Prévenez-moi" sous les badges du download */
+.download-notify {
+  margin-top: 20px;
+  text-align: center;
+}
+.download-notify-link {
+  font-size: 0.92rem;
+  color: var(--blue-light);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: border-color 0.15s;
+}
+.download-notify-link:hover {
+  border-bottom-color: var(--blue-light);
 }
 
 /* ── Video ──────────────────────────────────────────── */
