@@ -684,7 +684,7 @@ section {
   display: block;
 }
 
-/* ── Badge TestFlight (en attendant un asset Figma) ── */
+/* ── Badge TestFlight ───────────────────────────────── */
 
 .testflight-badge-link {
   display: inline-block;
@@ -693,45 +693,10 @@ section {
 }
 .testflight-badge-link:hover { transform: scale(1.04); }
 
-.testflight-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+.testflight-badge-img {
   height: 52px;
-  padding: 0 16px 0 14px;
-  border-radius: 12px;
-  background: #000;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-  line-height: 1.1;
-  box-sizing: border-box;
-}
-
-.testflight-badge-icon {
-  width: 26px;
-  height: 26px;
-  flex-shrink: 0;
-  color: #4a9eff;
-}
-.testflight-badge-icon svg { width: 100%; height: 100%; }
-
-.testflight-badge-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left;
-}
-.testflight-badge-line1 {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  opacity: 0.8;
-}
-.testflight-badge-line2 {
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  width: auto;
+  display: block;
 }
 
 /* Lien "Prévenez-moi" sous les badges du download */
