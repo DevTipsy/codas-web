@@ -63,10 +63,6 @@
       <div class="hero-grid">
 
         <div class="hero-content">
-          <div class="hero-tag">
-            <span class="hero-tag-dot"></span>
-            <span data-fr="Bientôt sur l'App Store" data-en="Coming soon to the App Store">Bientôt sur l'App Store</span>
-          </div>
 
           <h1 class="hero-title">
             <span data-fr="La bibliothèque de composants SwiftUI ultime" data-en="The Ultimate SwiftUI Components Library">La bibliothèque de composants SwiftUI ultime</span>
@@ -79,18 +75,28 @@
           </p>
 
           <div class="hero-badges">
-            <a href="#" class="apple-badge-link" data-action="notify-modal"
-               data-fr-tooltip="Prévenez-moi à la sortie"
-               data-en-tooltip="Notify me at launch">
-              <img draggable="false" src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/fr-fr"
-                   alt="Télécharger dans l'App Store"
-                   class="apple-badge-img" />
-            </a>
-            <a href="https://testflight.apple.com/join/h63ajDGa" class="testflight-badge-link" target="_blank" rel="noopener">
-              <img draggable="false" src="assets/badges/testflight.png"
-                   alt="Ouvrir dans TestFlight"
-                   class="testflight-badge-img" />
-            </a>
+            <div class="badge-with-label">
+              <a href="#" class="apple-badge-link" data-action="notify-modal"
+                 data-fr-tooltip="Prévenez-moi à la sortie"
+                 data-en-tooltip="Notify me at launch">
+                <img draggable="false" src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/fr-fr"
+                     alt="Télécharger dans l'App Store"
+                     class="apple-badge-img" />
+              </a>
+              <span class="badge-label badge-label--upcoming"
+                    data-fr="Prochainement" data-en="Coming soon">Prochainement</span>
+            </div>
+            <div class="badge-with-label">
+              <a href="https://testflight.apple.com/join/h63ajDGa" class="testflight-badge-link" target="_blank" rel="noopener">
+                <img draggable="false" src="assets/badges/testflight.png"
+                     alt="Ouvrir dans TestFlight"
+                     class="testflight-badge-img" />
+              </a>
+              <span class="badge-label badge-label--available">
+                <span data-app-version>V7</span>
+                <span data-fr="Disponible" data-en="Available">Disponible</span>
+              </span>
+            </div>
           </div>
         </div>
 
@@ -497,36 +503,34 @@
           Codas arrive bientôt sur iOS, iPadOS et macOS.
         </p>
         <div class="download-badges">
-          <a href="#" class="apple-badge-link" data-action="notify-modal">
-            <img draggable="false" src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/fr-fr"
-                 alt="Télécharger dans l'App Store"
-                 class="apple-badge-img" />
-          </a>
-          <a href="https://testflight.apple.com/join/h63ajDGa" class="testflight-badge-link" target="_blank" rel="noopener">
-            <span class="testflight-badge">
-              <span class="testflight-badge-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21.5 2.5 9 10l-6.5-2L2 7l19.5-4.5z"/>
-                  <path d="m9 10 2 7 1.5-1.5L21.5 2.5"/>
-                </svg>
-              </span>
-              <span class="testflight-badge-text">
-                <span class="testflight-badge-line1"
-                      data-fr="Tester la beta sur"
-                      data-en="Test the beta on">Tester la beta sur</span>
-                <span class="testflight-badge-line2">TestFlight</span>
-              </span>
+          <div class="badge-with-label">
+            <a href="#" class="apple-badge-link" data-action="notify-modal">
+              <img draggable="false" src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/fr-fr"
+                   alt="Télécharger dans l'App Store"
+                   class="apple-badge-img" />
+            </a>
+            <span class="badge-label badge-label--upcoming"
+                  data-fr="Prochainement" data-en="Coming soon">Prochainement</span>
+          </div>
+          <div class="badge-with-label">
+            <a href="https://testflight.apple.com/join/h63ajDGa" class="testflight-badge-link" target="_blank" rel="noopener">
+              <img draggable="false" src="assets/badges/testflight.png"
+                   alt="Ouvrir dans TestFlight"
+                   class="testflight-badge-img" />
+            </a>
+            <span class="badge-label badge-label--available">
+              <span data-app-version>V7</span>
+              <span data-fr="Disponible" data-en="Available">Disponible</span>
             </span>
-          </a>
+          </div>
         </div>
 
-        <p class="download-notify reveal">
-          <a href="#" class="download-notify-link" data-action="notify-modal"
-             data-fr="✉ Prévenez-moi à la sortie officielle"
-             data-en="✉ Notify me at official launch">
-            ✉ Prévenez-moi à la sortie officielle
-          </a>
-        </p>
+        <a href="#" class="download-notify reveal" data-action="notify-modal">
+          <img src="assets/envelope.png" alt="" class="download-notify-icon" draggable="false" />
+          <span class="download-notify-text"
+                data-fr="Prévenez-moi à la sortie officielle"
+                data-en="Notify me at official launch">Prévenez-moi à la sortie officielle</span>
+        </a>
       </div>
     </div>
   </section>
@@ -601,7 +605,6 @@
     <div class="container">
       <div class="footer-inner">
         <nav class="footer-links">
-          <a href="#mcp" data-fr="MCP" data-en="MCP">MCP</a>
           <a href="privacy.html" data-fr="Politique de confidentialité" data-en="Privacy Policy">Politique de confidentialité</a>
           <a href="support.html" data-fr="Support" data-en="Support">Support</a>
           <a href="mailto:contact@codaslibrary.app">contact@codaslibrary.app</a>
