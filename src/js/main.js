@@ -36,6 +36,23 @@ document.addEventListener('DOMContentLoaded', () => {
       : 'none';
   }, { passive: true });
 
+  // ── Bouton copier URL MCP ─────────────────────────────
+  document.querySelectorAll('.mcp-url-copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement?.querySelector('code');
+      if (!code) return;
+      const lang = document.documentElement.lang === 'en' ? 'en' : 'fr';
+      navigator.clipboard.writeText(code.textContent || '').then(() => {
+        btn.classList.add('copied');
+        btn.textContent = btn.dataset[`${lang}Copied`] || 'Copied ✓';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.textContent = btn.dataset[`${lang}Copy`] || 'Copy';
+        }, 1800);
+      });
+    });
+  });
+
   // ── Screenshots : molette verticale → scroll horizontal ──
   // Pas d'interaction drag/click sur les captures — uniquement la
   // scrollbar native et la molette.
