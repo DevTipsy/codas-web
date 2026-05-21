@@ -11,17 +11,7 @@ if ('scrollRestoration' in history) {
 window.scrollTo(0, 0);
 window.addEventListener('load', () => window.scrollTo(0, 0));
 
-// Version actuelle de l'app dispo sur TestFlight. Bump à chaque nouvelle
-// build poussée — c'est le seul endroit à modifier, tous les badges du
-// site se mettent à jour automatiquement.
-const APP_VERSION = 'V7';
-
 document.addEventListener('DOMContentLoaded', () => {
-
-  // Injecte la version dans tous les badges qui portent data-app-version
-  document.querySelectorAll('[data-app-version]').forEach(el => {
-    el.textContent = APP_VERSION;
-  });
 
   // ── Scroll reveal ──────────────────────────────────────
   const observer = new IntersectionObserver((entries) => {
