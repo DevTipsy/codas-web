@@ -36,6 +36,95 @@ document.addEventListener('DOMContentLoaded', () => {
       : 'none';
   }, { passive: true });
 
+  // ── Modale "Prévenez-moi à la sortie" ─────────────────
+  const notifyModal = document.getElementById('notify-modal');
+  if (notifyModal) {
+    const form  = notifyModal.querySelector('#notify-form');
+    const input = notifyModal.querySelector('#notify-email');
+    const submitBtn = form?.querySelector('button[type="submit"]');
+    const errorBox = notifyModal.querySelector('#notify-modal-error');
+    const states = notifyModal.querySelectorAll('.notify-modal-state');
+
+    const NOTIFY_ENDPOINT = 'https://api.codaslibrary.app/notify-list';
+
+    function showState(name) {
+      states.forEach(el => {
+        el.hidden = el.dataset.state !== name;
+      });
+    }
+    function openModal() {
+      notifyModal.hidden = false;
+      notifyModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      showState('form');
+      if (errorBox) { errorBox.hidden = true; errorBox.textContent = ''; }
+      if (input) {
+        input.value = '';
+        setTimeout(() => input.focus(), 80);
+      }
+    }
+    function closeModal() {
+      notifyModal.hidden = true;
+      notifyModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // Ouverture : tous les éléments avec data-action="notify-modal"
+    document.querySelectorAll('[data-action="notify-modal"]').forEach(trigger => {
+      trigger.addEventListener('click', e => {
+        e.preventDefault();
+        openModal();
+      });
+    });
+
+    // Fermeture : backdrop, croix, boutons "Fermer"
+    document.querySelectorAll('[data-action="notify-close"]').forEach(el => {
+      el.addEventListener('click', e => {
+        e.preventDefault();
+        closeModal();
+      });
+    });
+    // Échap pour fermer
+    document.addEventListener('keydown', e => {
+      if (!notifyModal.hidden && e.key === 'Escape') closeModal();
+    });
+
+    // Submit du formulaire
+    form?.addEventListener('submit', async e => {
+      e.preventDefault();
+      const email = input?.value.trim() ?? '';
+      if (!email) return;
+
+      if (errorBox) { errorBox.hidden = true; errorBox.textContent = ''; }
+      if (submitBtn) submitBtn.disabled = true;
+
+      try {
+        const res = await fetch(NOTIFY_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+        if (!res.ok) {
+          let reason = `Erreur ${res.status}`;
+          try {
+            const body = await res.json();
+            if (body?.reason) reason = body.reason;
+          } catch { /* ignore */ }
+          throw new Error(reason);
+        }
+        const data = await res.json().catch(() => ({}));
+        showState(data?.status === 'already_subscribed' ? 'already' : 'success');
+      } catch (err) {
+        if (errorBox) {
+          errorBox.textContent = err.message || 'Une erreur est survenue. Réessaie.';
+          errorBox.hidden = false;
+        }
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
+  }
+
   // ── Bouton copier URL MCP ─────────────────────────────
   document.querySelectorAll('.mcp-url-copy').forEach(btn => {
     btn.addEventListener('click', () => {
