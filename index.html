@@ -79,8 +79,7 @@
           </p>
 
           <div class="hero-badges">
-            <a href="mailto:contact@codaslibrary.app?subject=Prévenez-moi à la sortie de Codas&body=Je souhaite être prévenu(e) dès la sortie officielle de Codas sur l'App Store."
-               class="apple-badge-link"
+            <a href="#" class="apple-badge-link" data-action="notify-modal"
                data-fr-tooltip="Prévenez-moi à la sortie"
                data-en-tooltip="Notify me at launch">
               <img draggable="false" src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/fr-fr"
@@ -498,8 +497,7 @@
           Codas arrive bientôt sur iOS, iPadOS et macOS.
         </p>
         <div class="download-badges">
-          <a href="mailto:contact@codaslibrary.app?subject=Prévenez-moi à la sortie de Codas&body=Je souhaite être prévenu(e) dès la sortie officielle de Codas sur l'App Store."
-             class="apple-badge-link">
+          <a href="#" class="apple-badge-link" data-action="notify-modal">
             <img draggable="false" src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/fr-fr"
                  alt="Télécharger dans l'App Store"
                  class="apple-badge-img" />
@@ -523,8 +521,7 @@
         </div>
 
         <p class="download-notify reveal">
-          <a href="mailto:contact@codaslibrary.app?subject=Prévenez-moi à la sortie de Codas&body=Je souhaite être prévenu(e) dès la sortie officielle de Codas sur l'App Store."
-             class="download-notify-link"
+          <a href="#" class="download-notify-link" data-action="notify-modal"
              data-fr="✉ Prévenez-moi à la sortie officielle"
              data-en="✉ Notify me at official launch">
             ✉ Prévenez-moi à la sortie officielle
@@ -533,6 +530,71 @@
       </div>
     </div>
   </section>
+
+  <!-- ── NOTIFY MODAL ───────────────────────────────────── -->
+  <div id="notify-modal" class="notify-modal" hidden aria-hidden="true">
+    <div class="notify-modal-backdrop" data-action="notify-close"></div>
+    <div class="notify-modal-card glass" role="dialog" aria-labelledby="notify-modal-title">
+      <button type="button" class="notify-modal-close" data-action="notify-close" aria-label="Fermer">×</button>
+
+      <div class="notify-modal-state" data-state="form">
+        <h3 id="notify-modal-title" class="notify-modal-title"
+            data-fr="Soyez prévenu à la sortie"
+            data-en="Get notified at launch">Soyez prévenu à la sortie</h3>
+        <p class="notify-modal-subtitle"
+           data-fr="Recevez un email dès que Codas est disponible sur l'App Store."
+           data-en="Get an email as soon as Codas is live on the App Store.">
+          Recevez un email dès que Codas est disponible sur l'App Store.
+        </p>
+
+        <form id="notify-form" class="notify-form" novalidate>
+          <input type="email" id="notify-email" name="email" required
+                 placeholder="vous@exemple.com"
+                 autocomplete="email" autocapitalize="off" autocorrect="off"
+                 spellcheck="false" />
+          <button type="submit" class="btn-primary"
+                  data-fr="M'inscrire"
+                  data-en="Sign me up">M'inscrire</button>
+        </form>
+        <p class="notify-modal-error" id="notify-modal-error" hidden></p>
+        <p class="notify-modal-hint"
+           data-fr="Pas de spam. Désinscription à tout moment en répondant au mail de confirmation."
+           data-en="No spam. Unsubscribe anytime by replying to the confirmation email.">
+          Pas de spam. Désinscription à tout moment en répondant au mail de confirmation.
+        </p>
+      </div>
+
+      <div class="notify-modal-state" data-state="success" hidden>
+        <div class="notify-success-icon">✓</div>
+        <h3 class="notify-modal-title"
+            data-fr="Merci, c'est noté !"
+            data-en="Thanks, you're in!">Merci, c'est noté !</h3>
+        <p class="notify-modal-subtitle"
+           data-fr="Vous recevrez un mail dès la sortie officielle. Un mail de confirmation vient d'être envoyé à votre adresse."
+           data-en="You'll get an email at official launch. A confirmation email has just been sent to you.">
+          Vous recevrez un mail dès la sortie officielle. Un mail de confirmation vient d'être envoyé à votre adresse.
+        </p>
+        <button type="button" class="btn-primary" data-action="notify-close"
+                data-fr="Fermer"
+                data-en="Close">Fermer</button>
+      </div>
+
+      <div class="notify-modal-state" data-state="already" hidden>
+        <div class="notify-success-icon notify-success-icon--neutral">!</div>
+        <h3 class="notify-modal-title"
+            data-fr="Déjà inscrit"
+            data-en="Already on the list">Déjà inscrit</h3>
+        <p class="notify-modal-subtitle"
+           data-fr="Cette adresse est déjà dans notre liste d'attente. Vous serez bien prévenu à la sortie."
+           data-en="This address is already on our waiting list. You'll be notified at launch.">
+          Cette adresse est déjà dans notre liste d'attente. Vous serez bien prévenu à la sortie.
+        </p>
+        <button type="button" class="btn-primary" data-action="notify-close"
+                data-fr="Fermer"
+                data-en="Close">Fermer</button>
+      </div>
+    </div>
+  </div>
 
   <!-- ── FOOTER ─────────────────────────────────────────── -->
   <footer>
