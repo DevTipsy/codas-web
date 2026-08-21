@@ -1,42 +1,41 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Codas — Bibliothèque de composants SwiftUI</title>
-  <meta name="description" content="Découvrez, partagez et achetez des composants SwiftUI prêts à l'emploi. La marketplace pour développeurs iOS." />
+  <title>Codas — SwiftUI Components Library</title>
+  <meta name="description" content="Discover, share and purchase ready-to-use SwiftUI components. The marketplace for iOS developers." />
 
-  <!-- Open Graph — cohérent avec le HTML source (FR), que i18n.js réécrit
-       en EN côté client si le visiteur bascule la langue -->
-  <meta property="og:title" content="Codas — Bibliothèque de composants SwiftUI" />
-  <meta property="og:description" content="Découvrez, partagez et achetez des composants SwiftUI prêts à l'emploi. La marketplace pour développeurs iOS." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Codas — SwiftUI Components Library" />
+  <meta property="og:description" content="Discover, share and purchase ready-to-use SwiftUI components. The marketplace for iOS developers." />
   <meta property="og:image" content="https://codaslibrary.app/assets/og-image.png" />
-  <meta property="og:url" content="https://codaslibrary.app" />
+  <meta property="og:url" content="https://codaslibrary.app/en/" />
   <meta property="og:type" content="website" />
-  <meta property="og:locale" content="fr_FR" />
-  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="fr_FR" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Codas — Bibliothèque de composants SwiftUI" />
-  <meta name="twitter:description" content="Découvrez, partagez et achetez des composants SwiftUI prêts à l'emploi. La marketplace pour développeurs iOS." />
+  <meta name="twitter:title" content="Codas — SwiftUI Components Library" />
+  <meta name="twitter:description" content="Discover, share and purchase ready-to-use SwiftUI components. The marketplace for iOS developers." />
   <meta name="twitter:image" content="https://codaslibrary.app/assets/og-image.png" />
 
-  <link rel="canonical" href="https://codaslibrary.app" />
+  <link rel="canonical" href="https://codaslibrary.app/en/" />
   <link rel="alternate" hreflang="fr" href="https://codaslibrary.app/" />
   <link rel="alternate" hreflang="en" href="https://codaslibrary.app/en/" />
   <link rel="alternate" hreflang="x-default" href="https://codaslibrary.app/" />
-  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="../css/main.css" />
 
-  <!-- JSON-LD — SoftwareApplication + avis, pour les rich snippets Google -->
+  <!-- JSON-LD — SoftwareApplication + reviews, for Google rich snippets -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Codas",
-    "alternateName": "Codas — Bibliothèque de composants SwiftUI",
-    "url": "https://codaslibrary.app",
-    "description": "Découvrez, partagez et achetez des composants SwiftUI prêts à l'emploi. La marketplace pour développeurs iOS.",
+    "alternateName": "Codas — SwiftUI Components Library",
+    "url": "https://codaslibrary.app/en/",
+    "description": "Discover, share and purchase ready-to-use SwiftUI components. The marketplace for iOS developers.",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "iOS, iPadOS, macOS",
     "image": "https://codaslibrary.app/assets/og-image.png",
@@ -100,13 +99,13 @@
   <nav id="navbar" class="glass-nav">
     <div class="container">
       <a href="#" class="nav-logo">
-        <img src="assets/appicon.png" alt="Codas" class="nav-logo-img" draggable="false" />
+        <img src="../assets/appicon.png" alt="Codas" class="nav-logo-img" draggable="false" />
       </a>
 
       <ul class="nav-links">
         <li><a href="#features"
                data-fr="Fonctionnalités"
-               data-en="Features">Fonctionnalités</a></li>
+               data-en="Features">Features</a></li>
         <li><a href="#mcp"
                data-fr="MCP"
                data-en="MCP">MCP</a></li>
@@ -115,20 +114,20 @@
                data-en="Screenshots">Screenshots</a></li>
         <li><a href="#testimonials"
                data-fr="Avis"
-               data-en="Reviews">Avis</a></li>
+               data-en="Reviews">Reviews</a></li>
       </ul>
 
       <div class="nav-right">
         <div class="lang-switcher">
-          <button class="lang-btn active" onclick="setLang('fr')">FR</button>
-          <!-- <a> plutôt que <button> : un vrai lien crawlable vers /en/
-               pour Googlebot et les visiteurs sans JS. Le clic JS
-               (setLang) reste instantané pour l'utilisateur classique. -->
-          <a class="lang-btn" href="/en/" onclick="event.preventDefault(); setLang('en');">EN</a>
+          <!-- <a> plutôt que <button> : un vrai lien crawlable vers / pour
+               Googlebot et les visiteurs sans JS. Le clic JS (setLang)
+               reste instantané pour l'utilisateur classique. -->
+          <a class="lang-btn" href="/" onclick="event.preventDefault(); setLang('fr');">FR</a>
+          <button class="lang-btn active" onclick="setLang('en')">EN</button>
         </div>
         <a href="#download" class="btn-glass"
            data-fr="Télécharger"
-           data-en="Download">Télécharger</a>
+           data-en="Download">Download</a>
       </div>
     </div>
   </nav>
@@ -142,42 +141,40 @@
         <div class="hero-content">
 
           <h1 class="hero-title">
-            <span data-fr="La bibliothèque de composants SwiftUI ultime" data-en="The Ultimate SwiftUI Components Library">La bibliothèque de composants SwiftUI ultime</span>
+            <span data-fr="La bibliothèque de composants SwiftUI ultime" data-en="The Ultimate SwiftUI Components Library">The Ultimate SwiftUI Components Library</span>
           </h1>
 
           <p class="hero-desc"
              data-fr="Trouvez, obtenez et partagez des composants SwiftUI prêts à l'emploi. Publiez vos créations et monétisez-les !"
-             data-en="Find, get and share ready-to-use SwiftUI components. Publish your creations and monetize them!">
-            Trouvez, obtenez et partagez des composants SwiftUI prêts à l'emploi. Publiez vos créations et monétisez-les !
-          </p>
+             data-en="Find, get and share ready-to-use SwiftUI components. Publish your creations and monetize them!">Find, get and share ready-to-use SwiftUI components. Publish your creations and monetize them!</p>
 
           <div class="hero-badges">
             <div class="badge-with-label">
               <a href="#" class="apple-badge-link" data-action="notify-modal"
                  data-fr-tooltip="Prévenez-moi à la sortie"
                  data-en-tooltip="Notify me at launch">
-                <img draggable="false" src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/fr-fr"
-                     alt="Télécharger dans l'App Store"
+                <img draggable="false" src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us"
+                     alt="Download on the App Store"
                      class="apple-badge-img" />
               </a>
               <span class="badge-label badge-label--upcoming"
-                    data-fr="Prochainement" data-en="Coming soon">Prochainement</span>
+                    data-fr="Prochainement" data-en="Coming soon">Coming soon</span>
             </div>
             <div class="badge-with-label">
               <a href="https://testflight.apple.com/join/h63ajDGa" class="testflight-badge-link" target="_blank" rel="noopener">
-                <img draggable="false" src="assets/badges/testflight.png"
-                     alt="Ouvrir dans TestFlight"
+                <img draggable="false" src="../assets/badges/testflight.png"
+                     alt="Open in TestFlight"
                      class="testflight-badge-img" />
               </a>
               <span class="badge-label badge-label--available"
-                    data-fr="Disponible" data-en="Available">Disponible</span>
+                    data-fr="Disponible" data-en="Available">Available</span>
             </div>
           </div>
         </div>
 
         <!-- iPhone frameShot -->
         <div class="hero-visual">
-          <img src="assets/hero.png" alt="Codas app" class="hero-frameshot" draggable="false" />
+          <img src="../assets/hero.png" alt="Codas app" class="hero-frameshot" draggable="false" />
         </div>
 
       </div>
@@ -187,17 +184,13 @@
   <!-- ── FEATURES ──────────────────────────────────────── -->
   <section id="features">
     <div class="container">
-      <span class="section-label" data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</span>
+      <span class="section-label" data-fr="Fonctionnalités" data-en="Features">Features</span>
       <h2 class="section-title reveal"
           data-fr="Le rêve de tout développeur"
-          data-en="Every developer's dream">
-        Le rêve de tout développeur
-      </h2>
+          data-en="Every developer's dream">Every developer's dream</h2>
       <p class="section-subtitle reveal"
          data-fr="Codas est avant tout une bibliothèque communautaire, pour que les développeurs créent et partagent."
-         data-en="Codas is above all a community library, for developers to create and share.">
-        Codas est avant tout une bibliothèque communautaire, pour que les développeurs créent et partagent.
-      </p>
+         data-en="Codas is above all a community library, for developers to create and share.">Codas is above all a community library, for developers to create and share.</p>
 
       <div class="features-grid">
 
@@ -207,12 +200,10 @@
           </div>
           <h3 class="feature-title"
               data-fr="Bibliothèque"
-              data-en="Library">Bibliothèque</h3>
+              data-en="Library">Library</h3>
           <p class="feature-desc"
              data-fr="Des centaines de composants SwiftUI organisés par catégorie. Prévisualisez le code avant d'acheter."
-             data-en="Hundreds of SwiftUI components organized by category. Preview the code before buying.">
-            Des centaines de composants SwiftUI organisés par catégorie. Prévisualisez le code avant d'acheter.
-          </p>
+             data-en="Hundreds of SwiftUI components organized by category. Preview the code before buying.">Hundreds of SwiftUI components organized by category. Preview the code before buying.</p>
         </div>
 
         <div class="feature-card glass glass-hover reveal">
@@ -221,12 +212,10 @@
           </div>
           <h3 class="feature-title"
               data-fr="Publication"
-              data-en="Publish">Publication</h3>
+              data-en="Publish">Publish</h3>
           <p class="feature-desc"
              data-fr="Publiez vos propres composants en quelques secondes. Vous avez juste besoin d'une image de prévisualisation, du code et des instructions d'implémentation."
-             data-en="Publish your own components in seconds. All you need is a preview image, the code and implementation instructions.">
-            Publiez vos propres composants en quelques secondes. Vous avez juste besoin d'une image de prévisualisation, du code et des instructions d'implémentation.
-          </p>
+             data-en="Publish your own components in seconds. All you need is a preview image, the code and implementation instructions.">Publish your own components in seconds. All you need is a preview image, the code and implementation instructions.</p>
         </div>
 
         <div class="feature-card glass glass-hover reveal">
@@ -235,12 +224,10 @@
           </div>
           <h3 class="feature-title"
               data-fr="Monétisation"
-              data-en="Monetization">Monétisation</h3>
+              data-en="Monetization">Monetization</h3>
           <p class="feature-desc"
              data-fr="Vous pouvez publier des composants payants et percevoir des revenus chaque mois automatiquement via PayPal."
-             data-en="You can publish paid components and receive revenue every month automatically via PayPal.">
-            Vous pouvez publier des composants payants et percevoir des revenus chaque mois automatiquement via PayPal.
-          </p>
+             data-en="You can publish paid components and receive revenue every month automatically via PayPal.">You can publish paid components and receive revenue every month automatically via PayPal.</p>
         </div>
 
         <div class="feature-card glass glass-hover reveal">
@@ -249,12 +236,10 @@
           </div>
           <h3 class="feature-title"
               data-fr="Sécurité"
-              data-en="Security">Sécurité</h3>
+              data-en="Security">Security</h3>
           <p class="feature-desc"
              data-fr="Le code source des composants payants est protégé par un algorithme avancé qui empêche toute copie ou capture d'écran non autorisée."
-             data-en="The source code of paid components is protected by an advanced algorithm that prevents any unauthorized copy or screenshot.">
-            Le code source des composants payants est protégé par un algorithme avancé qui empêche toute copie ou capture d'écran non autorisée.
-          </p>
+             data-en="The source code of paid components is protected by an advanced algorithm that prevents any unauthorized copy or screenshot.">The source code of paid components is protected by an advanced algorithm that prevents any unauthorized copy or screenshot.</p>
         </div>
 
       </div>
@@ -264,17 +249,13 @@
   <!-- ── MCP ───────────────────────────────────────────── -->
   <section id="mcp">
     <div class="container">
-      <span class="section-label" data-fr="Intégration IA" data-en="AI Integration">Intégration IA</span>
+      <span class="section-label" data-fr="Intégration IA" data-en="AI Integration">AI Integration</span>
       <h2 class="section-title reveal"
           data-fr="Codas dans ton IA favorite"
-          data-en="Codas in your favorite AI">
-        Codas dans ton IA favorite
-      </h2>
+          data-en="Codas in your favorite AI">Codas in your favorite AI</h2>
       <p class="section-subtitle reveal"
          data-fr="Connecte Claude, ChatGPT, Cursor et tout assistant compatible MCP au catalogue Codas. Pour intégrer des composants directement depuis ton éditeur."
-         data-en="Connect Claude, ChatGPT, Cursor and any MCP-compatible assistant to the Codas catalog. Plug components straight into your editor.">
-        Connecte Claude, ChatGPT, Cursor et tout assistant compatible MCP au catalogue Codas. Pour intégrer des composants directement depuis ton éditeur.
-      </p>
+         data-en="Connect Claude, ChatGPT, Cursor and any MCP-compatible assistant to the Codas catalog. Plug components straight into your editor.">Connect Claude, ChatGPT, Cursor and any MCP-compatible assistant to the Codas catalog. Plug components straight into your editor.</p>
 
       <div class="mcp-card glass reveal">
         <div class="mcp-clients">
@@ -289,26 +270,24 @@
 
         <div class="mcp-url">
           <code id="mcp-url-code">https://mcp.codaslibrary.app/mcp</code>
-          <button class="mcp-url-copy" type="button" aria-label="Copier l'URL"
+          <button class="mcp-url-copy" type="button" aria-label="Copy the URL"
                   data-fr-copy="Copier" data-en-copy="Copy"
-                  data-fr-copied="Copié ✓" data-en-copied="Copied ✓">Copier</button>
+                  data-fr-copied="Copié ✓" data-en-copied="Copied ✓">Copy</button>
         </div>
 
         <p class="mcp-card-hint"
            data-fr="Colle cette URL dans ton client IA puis autorise la connexion avec ta clé API Codas. C'est tout."
-           data-en="Paste this URL into your AI client and authorize with your Codas API key. That's it.">
-          Colle cette URL dans ton client IA puis autorise la connexion avec ta clé API Codas. C'est tout.
-        </p>
+           data-en="Paste this URL into your AI client and authorize with your Codas API key. That's it.">Paste this URL into your AI client and authorize with your Codas API key. That's it.</p>
 
       </div>
 
       <ul class="mcp-prompts reveal">
         <li data-fr="« Trouve un bouton avec un effet glass dans Codas »"
-            data-en="“Find a glass-effect button in Codas”">« Trouve un bouton avec un effet glass dans Codas »</li>
+            data-en="“Find a glass-effect button in Codas”">“Find a glass-effect button in Codas”</li>
         <li data-fr="« Recommande un composant pour faire un graphique »"
-            data-en="“Recommend a component to render a chart”">« Recommande un composant pour faire un graphique »</li>
+            data-en="“Recommend a component to render a chart”">“Recommend a component to render a chart”</li>
         <li data-fr="« Récupère le code de MiniBarChart »"
-            data-en="“Get the code for MiniBarChart”">« Récupère le code de MiniBarChart »</li>
+            data-en="“Get the code for MiniBarChart”">“Get the code for MiniBarChart”</li>
       </ul>
     </div>
   </section>
@@ -320,14 +299,10 @@
         <span class="section-label">Screenshots</span>
         <h2 class="section-title reveal"
             data-fr="L'app en images"
-            data-en="The app in pictures">
-          L'app en images
-        </h2>
+            data-en="The app in pictures">The app in pictures</h2>
         <p class="section-subtitle reveal"
            data-fr="Disponible sur iPhone, iPad et Mac."
-           data-en="Available on iPhone, iPad and Mac.">
-          Disponible sur iPhone, iPad et Mac.
-        </p>
+           data-en="Available on iPhone, iPad and Mac.">Available on iPhone, iPad and Mac.</p>
       </div>
 
       <div class="platform-tabs" role="tablist">
@@ -337,49 +312,49 @@
       </div>
 
       <div class="screenshots-scroll" data-platform="mac">
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen1.png" alt="Codas macOS 1" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen2.png" alt="Codas macOS 2" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen3.png" alt="Codas macOS 3" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen4.png" alt="Codas macOS 4" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen5.png" alt="Codas macOS 5" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen6.png" alt="Codas macOS 6" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen7.png" alt="Codas macOS 7" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen8.png" alt="Codas macOS 8" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots/screen9.png" alt="Codas macOS 9" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots/screen1.png" alt="Codas macOS 1" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots/screen2.png" alt="Codas macOS 2" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots/screen3.png" alt="Codas macOS 3" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots/screen4.png" alt="Codas macOS 4" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots/screen5.png" alt="Codas macOS 5" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots/screen6.png" alt="Codas macOS 6" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots/screen7.png" alt="Codas macOS 7" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots/screen8.png" alt="Codas macOS 8" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots/screen9.png" alt="Codas macOS 9" /></div>
       </div>
 
       <!-- Ordre = ordre alphabétique des fichiers (a → m), correspondant au
            parcours app voulu côté design. Pour réordonner, déplace les <div>. -->
       <div class="screenshots-scroll screenshots-scroll--ios" data-platform="ios" hidden>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/01-a.png" alt="Codas iOS 1" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/02-b.png" alt="Codas iOS 2" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/03-c.png" alt="Codas iOS 3" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/04-d.png" alt="Codas iOS 4" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/05-e.png" alt="Codas iOS 5" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/06-f.png" alt="Codas iOS 6" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/07-g.png" alt="Codas iOS 7" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/08-h.png" alt="Codas iOS 8" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/09-i.png" alt="Codas iOS 9" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/10-j.png" alt="Codas iOS 10" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/11-k.png" alt="Codas iOS 11" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/12-l.png" alt="Codas iOS 12" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ios/13-m.png" alt="Codas iOS 13" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ios/01-a.png" alt="Codas iOS 1" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ios/02-b.png" alt="Codas iOS 2" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ios/03-c.png" alt="Codas iOS 3" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ios/04-d.png" alt="Codas iOS 4" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ios/05-e.png" alt="Codas iOS 5" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ios/06-f.png" alt="Codas iOS 6" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ios/07-g.png" alt="Codas iOS 7" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ios/08-h.png" alt="Codas iOS 8" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ios/09-i.png" alt="Codas iOS 9" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ios/10-j.png" alt="Codas iOS 10" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ios/11-k.png" alt="Codas iOS 11" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ios/12-l.png" alt="Codas iOS 12" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ios/13-m.png" alt="Codas iOS 13" /></div>
       </div>
 
       <div class="screenshots-scroll screenshots-scroll--ipad" data-platform="ipad" hidden>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/01.png" alt="Codas iPadOS 1" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/02.png" alt="Codas iPadOS 2" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/03.png" alt="Codas iPadOS 3" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/04.png" alt="Codas iPadOS 4" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/05.png" alt="Codas iPadOS 5" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/06.png" alt="Codas iPadOS 6" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/07.png" alt="Codas iPadOS 7" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/08.png" alt="Codas iPadOS 8" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/09.png" alt="Codas iPadOS 9" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/10.png" alt="Codas iPadOS 10" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/11.png" alt="Codas iPadOS 11" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/12.png" alt="Codas iPadOS 12" /></div>
-        <div class="screenshot-frame"><img draggable="false" src="assets/screenshots-ipad/13.png" alt="Codas iPadOS 13" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ipad/01.png" alt="Codas iPadOS 1" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ipad/02.png" alt="Codas iPadOS 2" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ipad/03.png" alt="Codas iPadOS 3" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ipad/04.png" alt="Codas iPadOS 4" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ipad/05.png" alt="Codas iPadOS 5" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ipad/06.png" alt="Codas iPadOS 6" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ipad/07.png" alt="Codas iPadOS 7" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ipad/08.png" alt="Codas iPadOS 8" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ipad/09.png" alt="Codas iPadOS 9" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ipad/10.png" alt="Codas iPadOS 10" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ipad/11.png" alt="Codas iPadOS 11" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ipad/12.png" alt="Codas iPadOS 12" /></div>
+        <div class="screenshot-frame"><img draggable="false" src="../assets/screenshots-ipad/13.png" alt="Codas iPadOS 13" /></div>
       </div>
     </div>
   </section>
@@ -389,23 +364,21 @@
     <div class="container">
       <h2 class="section-title reveal"
           data-fr="Voir Codas en action"
-          data-en="See Codas in action">
-        Voir Codas en action
-      </h2>
+          data-en="See Codas in action">See Codas in action</h2>
 
       <h3 class="video-subtitle reveal"
           data-fr="Présentation générale"
-          data-en="General overview">Présentation générale</h3>
+          data-en="General overview">General overview</h3>
       <div class="video-wrapper reveal">
         <video class="video-player"
-               src="assets/video/presentation.mp4"
+               src="../assets/video/presentation.mp4"
                autoplay
                muted
                loop
                playsinline
                controls
                preload="metadata">
-          <p data-fr="Votre navigateur ne supporte pas la vidéo HTML5." data-en="Your browser does not support HTML5 video.">Votre navigateur ne supporte pas la vidéo HTML5.</p>
+          <p data-fr="Votre navigateur ne supporte pas la vidéo HTML5." data-en="Your browser does not support HTML5 video.">Your browser does not support HTML5 video.</p>
         </video>
       </div>
 
@@ -414,14 +387,14 @@
           data-en="Drag and Drop">Drag and Drop</h3>
       <div class="video-wrapper reveal">
         <video class="video-player"
-               src="assets/video/dragdrop.mp4"
+               src="../assets/video/dragdrop.mp4"
                autoplay
                muted
                loop
                playsinline
                controls
                preload="metadata">
-          <p data-fr="Votre navigateur ne supporte pas la vidéo HTML5." data-en="Your browser does not support HTML5 video.">Votre navigateur ne supporte pas la vidéo HTML5.</p>
+          <p data-fr="Votre navigateur ne supporte pas la vidéo HTML5." data-en="Your browser does not support HTML5 video.">Your browser does not support HTML5 video.</p>
         </video>
       </div>
     </div>
@@ -432,51 +405,47 @@
     <div class="container">
       <div class="creators-grid">
         <div class="creators-content reveal">
-          <span class="section-label" data-fr="Pour les créateurs" data-en="For creators">Pour les créateurs</span>
+          <span class="section-label" data-fr="Pour les créateurs" data-en="For creators">For creators</span>
           <h2 class="section-title"
               data-fr="Monétisez votre expertise SwiftUI"
-              data-en="Monetize your SwiftUI expertise">
-            Monétisez votre expertise SwiftUI
-          </h2>
+              data-en="Monetize your SwiftUI expertise">Monetize your SwiftUI expertise</h2>
           <p class="section-subtitle"
              data-fr="Publiez vos composants, fixez votre prix, et recevez vos versements automatiquement chaque mois."
-             data-en="Publish your components, set your price, and receive your payouts automatically every month.">
-            Publiez vos composants, fixez votre prix, et recevez vos versements automatiquement chaque mois.
-          </p>
+             data-en="Publish your components, set your price, and receive your payouts automatically every month.">Publish your components, set your price, and receive your payouts automatically every month.</p>
           <ul class="creators-list">
             <li>
               <div class="creators-check">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <span data-fr="Publication en moins d'une minute" data-en="Publish in under a minute">Publication en moins d'une minute</span>
+              <span data-fr="Publication en moins d'une minute" data-en="Publish in under a minute">Publish in under a minute</span>
             </li>
             <li>
               <div class="creators-check">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <span data-fr="Prix libre entre 0,99 € et 99,99 €" data-en="Free pricing from €0.99 to €99.99">Prix libre entre 0,99 € et 99,99 €</span>
+              <span data-fr="Prix libre entre 0,99 € et 99,99 €" data-en="Free pricing from €0.99 to €99.99">Free pricing from €0.99 to €99.99</span>
             </li>
             <li>
               <div class="creators-check">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <span data-fr="Versements mensuels automatiques via PayPal" data-en="Automatic monthly payouts via PayPal">Versements mensuels automatiques via PayPal</span>
+              <span data-fr="Versements mensuels automatiques via PayPal" data-en="Automatic monthly payouts via PayPal">Automatic monthly payouts via PayPal</span>
             </li>
             <li>
               <div class="creators-check">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <span data-fr="Protection anti-copie du code source" data-en="Source code copy protection">Protection anti-copie du code source</span>
+              <span data-fr="Protection anti-copie du code source" data-en="Source code copy protection">Source code copy protection</span>
             </li>
           </ul>
         </div>
         <div class="creators-visual reveal">
           <div class="creators-card glass">
             <div class="creators-card-header">
-              <span data-fr="Revenu total généré" data-en="Total revenue generated">Revenu total généré</span>
+              <span data-fr="Revenu total généré" data-en="Total revenue generated">Total revenue generated</span>
             </div>
             <div class="creators-card-amount">317,42 €</div>
-            <div class="creators-card-sub" data-fr="Cumulé par les créateurs depuis le lancement" data-en="Cumulative across creators since launch">Cumulé par les créateurs depuis le lancement</div>
+            <div class="creators-card-sub" data-fr="Cumulé par les créateurs depuis le lancement" data-en="Cumulative across creators since launch">Cumulative across creators since launch</div>
           </div>
         </div>
       </div>
@@ -486,12 +455,10 @@
   <!-- ── TESTIMONIALS ───────────────────────────────────── -->
   <section id="testimonials">
     <div class="container">
-      <span class="section-label" data-fr="Avis" data-en="Reviews">Avis</span>
+      <span class="section-label" data-fr="Avis" data-en="Reviews">Reviews</span>
       <h2 class="section-title reveal"
           data-fr="Ce qu'en disent les développeurs"
-          data-en="What developers say">
-        Ce qu'en disent les développeurs
-      </h2>
+          data-en="What developers say">What developers say</h2>
 
       <div class="testimonials-grid">
 
@@ -499,14 +466,12 @@
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-text"
              data-fr="&ldquo;Enfin une app qui centralise tous les composants SwiftUI. Je gagne un temps fou sur mes projets.&rdquo;"
-             data-en="&ldquo;Finally an app that centralizes all SwiftUI components. I save so much time on my projects.&rdquo;">
-            &ldquo;Enfin une app qui centralise tous les composants SwiftUI. Je gagne un temps fou sur mes projets.&rdquo;
-          </p>
+             data-en="&ldquo;Finally an app that centralizes all SwiftUI components. I save so much time on my projects.&rdquo;">&ldquo;Finally an app that centralizes all SwiftUI components. I save so much time on my projects.&rdquo;</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">AL</div>
             <div>
               <div class="testimonial-name">Alexandre L.</div>
-              <div class="testimonial-role" data-fr="Développeur iOS indépendant" data-en="Indie iOS Developer">Développeur iOS indépendant</div>
+              <div class="testimonial-role" data-fr="Développeur iOS indépendant" data-en="Indie iOS Developer">Indie iOS Developer</div>
             </div>
           </div>
         </div>
@@ -515,14 +480,12 @@
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-text"
              data-fr="&ldquo;J'ai publié mes premiers composants en 5 minutes. L'interface est super intuitive.&rdquo;"
-             data-en="&ldquo;I published my first components in 5 minutes. The interface is super intuitive.&rdquo;">
-            &ldquo;J'ai publié mes premiers composants en 5 minutes. L'interface est super intuitive.&rdquo;
-          </p>
+             data-en="&ldquo;I published my first components in 5 minutes. The interface is super intuitive.&rdquo;">&ldquo;I published my first components in 5 minutes. The interface is super intuitive.&rdquo;</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">MK</div>
             <div>
               <div class="testimonial-name">Marie K.</div>
-              <div class="testimonial-role" data-fr="Développeuse SwiftUI" data-en="SwiftUI Developer">Développeuse SwiftUI</div>
+              <div class="testimonial-role" data-fr="Développeuse SwiftUI" data-en="SwiftUI Developer">SwiftUI Developer</div>
             </div>
           </div>
         </div>
@@ -531,14 +494,12 @@
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-text"
              data-fr="&ldquo;La protection du code pour les composants payants est vraiment bien pensée. Bravo.&rdquo;"
-             data-en="&ldquo;The code protection for paid components is really well thought out. Well done.&rdquo;">
-            &ldquo;La protection du code pour les composants payants est vraiment bien pensée. Bravo.&rdquo;
-          </p>
+             data-en="&ldquo;The code protection for paid components is really well thought out. Well done.&rdquo;">&ldquo;The code protection for paid components is really well thought out. Well done.&rdquo;</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">TR</div>
             <div>
               <div class="testimonial-name">Thomas R.</div>
-              <div class="testimonial-role" data-fr="Lead Developer iOS" data-en="iOS Lead Developer">Lead Developer iOS</div>
+              <div class="testimonial-role" data-fr="Lead Developer iOS" data-en="iOS Lead Developer">iOS Lead Developer</div>
             </div>
           </div>
         </div>
@@ -547,14 +508,12 @@
           <div class="testimonial-stars">★★★★☆</div>
           <p class="testimonial-text"
              data-fr="&ldquo;Parfait pour trouver de l'inspiration et découvrir de nouvelles techniques SwiftUI rapidement.&rdquo;"
-             data-en="&ldquo;Perfect for finding inspiration and discovering new SwiftUI techniques quickly.&rdquo;">
-            &ldquo;Parfait pour trouver de l'inspiration et découvrir de nouvelles techniques SwiftUI rapidement.&rdquo;
-          </p>
+             data-en="&ldquo;Perfect for finding inspiration and discovering new SwiftUI techniques quickly.&rdquo;">&ldquo;Perfect for finding inspiration and discovering new SwiftUI techniques quickly.&rdquo;</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">SB</div>
             <div>
               <div class="testimonial-name">Sophie B.</div>
-              <div class="testimonial-role" data-fr="Étudiante en développement iOS" data-en="iOS Development Student">Étudiante en développement iOS</div>
+              <div class="testimonial-role" data-fr="Étudiante en développement iOS" data-en="iOS Development Student">iOS Development Student</div>
             </div>
           </div>
         </div>
@@ -569,32 +528,28 @@
       <div class="download-inner glass">
         <h2 class="download-title"
             data-fr="Prêt à accélérer vos projets ?"
-            data-en="Ready to accelerate your projects?">
-          Prêt à accélérer vos projets ?
-        </h2>
+            data-en="Ready to accelerate your projects?">Ready to accelerate your projects?</h2>
         <p class="download-subtitle"
            data-fr="Codas arrive bientôt sur iOS, iPadOS et macOS."
-           data-en="Codas is coming soon to iOS, iPadOS and macOS.">
-          Codas arrive bientôt sur iOS, iPadOS et macOS.
-        </p>
+           data-en="Codas is coming soon to iOS, iPadOS and macOS.">Codas is coming soon to iOS, iPadOS and macOS.</p>
         <div class="download-badges">
           <a href="#" class="apple-badge-link" data-action="notify-modal">
-            <img draggable="false" src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/fr-fr"
-                 alt="Télécharger dans l'App Store"
+            <img draggable="false" src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us"
+                 alt="Download on the App Store"
                  class="apple-badge-img" />
           </a>
           <a href="https://testflight.apple.com/join/h63ajDGa" class="testflight-badge-link" target="_blank" rel="noopener">
-            <img draggable="false" src="assets/badges/testflight.png"
-                 alt="Ouvrir dans TestFlight"
+            <img draggable="false" src="../assets/badges/testflight.png"
+                 alt="Open in TestFlight"
                  class="testflight-badge-img" />
           </a>
         </div>
 
         <a href="#" class="download-notify reveal" data-action="notify-modal">
-          <img src="assets/envelope.png" alt="" class="download-notify-icon" draggable="false" />
+          <img src="../assets/envelope.png" alt="" class="download-notify-icon" draggable="false" />
           <span class="download-notify-text"
                 data-fr="Prévenez-moi à la sortie officielle"
-                data-en="Notify me at official launch">Prévenez-moi à la sortie officielle</span>
+                data-en="Notify me at official launch">Notify me at official launch</span>
         </a>
       </div>
     </div>
@@ -604,63 +559,55 @@
   <div id="notify-modal" class="notify-modal" hidden aria-hidden="true">
     <div class="notify-modal-backdrop" data-action="notify-close"></div>
     <div class="notify-modal-card glass" role="dialog" aria-labelledby="notify-modal-title">
-      <button type="button" class="notify-modal-close" data-action="notify-close" aria-label="Fermer">×</button>
+      <button type="button" class="notify-modal-close" data-action="notify-close" aria-label="Close">×</button>
 
       <div class="notify-modal-state" data-state="form">
         <h3 id="notify-modal-title" class="notify-modal-title"
             data-fr="Soyez prévenu à la sortie"
-            data-en="Get notified at launch">Soyez prévenu à la sortie</h3>
+            data-en="Get notified at launch">Get notified at launch</h3>
         <p class="notify-modal-subtitle"
            data-fr="Recevez un email dès que Codas est disponible sur l'App Store."
-           data-en="Get an email as soon as Codas is live on the App Store.">
-          Recevez un email dès que Codas est disponible sur l'App Store.
-        </p>
+           data-en="Get an email as soon as Codas is live on the App Store.">Get an email as soon as Codas is live on the App Store.</p>
 
         <form id="notify-form" class="notify-form" novalidate>
           <input type="email" id="notify-email" name="email" required
-                 placeholder="vous@exemple.com"
+                 placeholder="you@example.com"
                  autocomplete="email" autocapitalize="off" autocorrect="off"
                  spellcheck="false" />
           <button type="submit" class="btn-primary"
                   data-fr="M'inscrire"
-                  data-en="Sign me up">M'inscrire</button>
+                  data-en="Sign me up">Sign me up</button>
         </form>
         <p class="notify-modal-error" id="notify-modal-error" hidden></p>
         <p class="notify-modal-hint"
            data-fr="Pas de spam. Désinscription à tout moment en répondant au mail de confirmation."
-           data-en="No spam. Unsubscribe anytime by replying to the confirmation email.">
-          Pas de spam. Désinscription à tout moment en répondant au mail de confirmation.
-        </p>
+           data-en="No spam. Unsubscribe anytime by replying to the confirmation email.">No spam. Unsubscribe anytime by replying to the confirmation email.</p>
       </div>
 
       <div class="notify-modal-state" data-state="success" hidden>
         <div class="notify-success-icon">✓</div>
         <h3 class="notify-modal-title"
             data-fr="Merci, c'est noté !"
-            data-en="Thanks, you're in!">Merci, c'est noté !</h3>
+            data-en="Thanks, you're in!">Thanks, you're in!</h3>
         <p class="notify-modal-subtitle"
            data-fr="Vous recevrez un mail dès la sortie officielle. Un mail de confirmation vient d'être envoyé à votre adresse."
-           data-en="You'll get an email at official launch. A confirmation email has just been sent to you.">
-          Vous recevrez un mail dès la sortie officielle. Un mail de confirmation vient d'être envoyé à votre adresse.
-        </p>
+           data-en="You'll get an email at official launch. A confirmation email has just been sent to you.">You'll get an email at official launch. A confirmation email has just been sent to you.</p>
         <button type="button" class="btn-primary" data-action="notify-close"
                 data-fr="Fermer"
-                data-en="Close">Fermer</button>
+                data-en="Close">Close</button>
       </div>
 
       <div class="notify-modal-state" data-state="already" hidden>
         <div class="notify-success-icon notify-success-icon--neutral">!</div>
         <h3 class="notify-modal-title"
             data-fr="Déjà inscrit"
-            data-en="Already on the list">Déjà inscrit</h3>
+            data-en="Already on the list">Already on the list</h3>
         <p class="notify-modal-subtitle"
            data-fr="Cette adresse est déjà dans notre liste d'attente. Vous serez bien prévenu à la sortie."
-           data-en="This address is already on our waiting list. You'll be notified at launch.">
-          Cette adresse est déjà dans notre liste d'attente. Vous serez bien prévenu à la sortie.
-        </p>
+           data-en="This address is already on our waiting list. You'll be notified at launch.">This address is already on our waiting list. You'll be notified at launch.</p>
         <button type="button" class="btn-primary" data-action="notify-close"
                 data-fr="Fermer"
-                data-en="Close">Fermer</button>
+                data-en="Close">Close</button>
       </div>
     </div>
   </div>
@@ -670,8 +617,8 @@
     <div class="container">
       <div class="footer-inner">
         <nav class="footer-links">
-          <a href="privacy.html" data-fr="Politique de confidentialité" data-en="Privacy Policy">Politique de confidentialité</a>
-          <a href="support.html" data-fr="Support" data-en="Support">Support</a>
+          <a href="../privacy.html" data-fr="Politique de confidentialité" data-en="Privacy Policy">Privacy Policy</a>
+          <a href="../support.html" data-fr="Support" data-en="Support">Support</a>
           <a href="mailto:contact@codaslibrary.app">contact@codaslibrary.app</a>
         </nav>
         <span class="footer-copy">© 2026 Codas. All rights reserved.</span>
@@ -679,8 +626,8 @@
     </div>
   </footer>
 
-  <script src="js/i18n.js"></script>
-  <script src="js/main.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/main.js"></script>
 
 </body>
 </html>

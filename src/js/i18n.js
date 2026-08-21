@@ -4,6 +4,13 @@
   const STORAGE_KEY = 'codas-lang';
 
   function detectLang() {
+    // /en/ est une URL indexable dédiée (SEO — hreflang) : elle doit
+    // toujours démarrer en anglais, indépendamment du localStorage ou de
+    // la langue navigateur. L'utilisateur peut ensuite basculer via le
+    // switcher, ce choix ponctuel n'est pas persisté ici.
+    if (location.pathname.startsWith('/en/') || location.pathname.startsWith('/en')) {
+      return 'en';
+    }
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) return saved;
     const browser = navigator.language || navigator.userLanguage || 'fr';
